@@ -24,7 +24,7 @@ export default {
         return {
             cmp: 'txtCmp',
             editMode: false,
-            bgc: 'rgb(255,255,136)',
+            bgc: 'rgb(136, 255, 243)',
             isShowingColors: false
         }
     },
