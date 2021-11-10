@@ -43,5 +43,49 @@ export default {
             rowsNumbers: [1]
         }
     },
+    methods: {
+        reportVal() {
+            this.$emit('setVal', this.note)
+        },
+        addNewLine(idx) {
+            if (!this.checkIfLastLineIsEmpty()) this.note.info.todos.push({ txt: '', isDone: false })
+        },
+        cleanInput() {
+            this.note.info.title = ''
+            this.note.info.txt = ''
+            this.note.info.todos = [{ txt: '', isDone: false }]
+        },
+        checkIfLastLineIsEmpty() {
+            if (this.note.info.todos.length === 0) return true
+            return (this.note.info.todos[this.note.info.todos.length - 1].txt === '')
+        },
+        updateIdx(idx) {
+            if (idx) return
+            this.currLineIdx = idx
+        },
+        textRows(idx) {
+            if (!this.note.info.todos[idx]) return
+            const text = this.note.info.todos[idx].txt
 
+            let numberOfLineBreaks = (text.match(/\n/g) || []).length
+            let characterCount = text.length + numberOfLineBreaks
+
+            this.rowsNumbers[idx] = numberOfLineBreaks + characterCount / 40 + 1
+            this.note.info.todosRows = this.rowsNumbers
+            this.reportVal()
+        },
+    },
+    computed: {
+        textRowsTitle() {
+            const text = this.note.info.title
+
+            let numberOfLineBreaks = (text.match(/\n/g) || []).length
+            let characterCount = text.length + numberOfLineBreaks
+
+            return numberOfLineBreaks + characterCount / 37 + 1
+        },
+    },
+    created() {
+        eventBus.$on('cleanInput', this.cleanInput)
+    }
 }
