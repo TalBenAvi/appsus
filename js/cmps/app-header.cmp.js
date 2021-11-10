@@ -4,9 +4,9 @@ export default {
             <h1>AppSus</h1>
             </div>
             <nav>
-                <router-link to="/" active-class="active-link" exact>Books</router-link> |
-                <router-link to="/book" active-class="active-link" >Email</router-link> |
-                <router-link to="/about" active-class="active-link" >Note</router-link>
+                <router-link to="/books" active-class="active-link" exact>Books</router-link> |
+                <router-link to="/email" active-class="active-link" >Email</router-link> |
+                <router-link to="/notes" active-class="active-link" >Note</router-link>
             </nav>
         </header>
     `,
