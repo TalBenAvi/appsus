@@ -1,8 +1,7 @@
-
 import emailApp from "../pages/email-app.cmp.js"
 
 export default {
-   props:['categories'],
+    props: ['categories'],
     template: `
     <aside class="email-side-bar">
         <button class="mail-compose-btn flex justify-center align-center">
@@ -39,24 +38,27 @@ export default {
         </section>
     </aside>
     `,
-    data(){
+    data() {
         return {
-               isActive: false,
+            isActive: false,
         }
     },
     methods: {
-        
+
         categoryToShow(category) {
             console.log(category);
             return category.text.split(':')[0]
         },
-        kkk(){
+        kkk() {
             alert('yes')
         },
-        nnn(){
+        nnn() {
             alert('no')
-        }
-        
+        },
+        makeActive(){
+
+        },
+
 
     },
     components: {

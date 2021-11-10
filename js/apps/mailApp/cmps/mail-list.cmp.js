@@ -9,7 +9,7 @@ export default {
         >
       
     </transition> -->
-    <section onload="created()" class="mails-list"> 
+    <section class="mail-list"> 
        <mail-preview v-for="mail in mails" :mail="mail" :key="mail.id"/>
     </section>
     `,

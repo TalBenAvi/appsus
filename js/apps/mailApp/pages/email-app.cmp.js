@@ -14,7 +14,7 @@ export default {
     <main class="email-app flex">
         <!-- <h1>email</h1> -->
         <side-bar></side-bar>
-        <mail-list :mails="mails"></mail-list>
+        <mail-list :mails="mails" ></mail-list>
     </main>
     `,
     data() {
