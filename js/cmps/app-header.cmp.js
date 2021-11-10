@@ -6,7 +6,7 @@ export default {
             <nav>
                 <router-link to="/books" active-class="active-link" exact>Books</router-link> |
                 <router-link to="/email" active-class="active-link" >Email</router-link> |
-                <router-link to="/notes" active-class="active-link" >Note</router-link>
+                <router-link to="/notes" active-class="active-link" >Notes</router-link>
             </nav>
         </header>
     `,
