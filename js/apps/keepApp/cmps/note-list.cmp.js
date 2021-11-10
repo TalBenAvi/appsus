@@ -1,17 +1,12 @@
-// import notePrev from './note-preview.js'
+import notePrev from './note-prev.js'
 
 export default {
     props: ['notes'],
     template: `
-    <section class="note-list-container">
-        <!-- <h3 v-if="pinnedNotes.length">Pinned</h3>    -->
+    <section class="note-list-container"> 
+        <hr>  
         <div class="note-list" >
-            <!-- <note-preview v-for="note in pinnedNotes" v-if="pinnedNotes.length" :key="note.id" :note="note"/> -->
-        </div>
-        <hr>
-        <!-- <h3 v-if="otherNotes.length && pinnedNotes.length">Notes</h3>    -->
-        <div class="note-list" >
-            <note-preview v-for="note in otherNotes" v-if="otherNotes" :key="note.id" :note="note"/>
+            <note-prev v-for="note in otherNotes" v-if="otherNotes" :key="note.id" :note="note"/>
         </div>
     </section>
     `,
@@ -23,7 +18,7 @@ export default {
             return this.notes.filter(note => !note.isPinned)
         }
     },
-    // components: {
-    //     notePrev
-    // },
+    components: {
+        notePrev
+    },
 }

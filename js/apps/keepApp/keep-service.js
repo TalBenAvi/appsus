@@ -1,4 +1,3 @@
-// import { utilService } from '../../../services/utils-service.js'
 import { storageService } from "../../services/async-storage-service.js"
 const NOTES_KEY = 'notes';
 
@@ -7,8 +6,8 @@ export const keepService = {
     createNotes,
     createNote,
     showNotes,
-    save,
-    remove,
+    post,
+    postMany,
 }
 function query() {
     return storageService.query(NOTES_KEY)
@@ -25,7 +24,7 @@ function query() {
 }
 function createNotes() {
     const notes = [{
-        "id": `${storageService.makeId}`,
+        "id": `${storageService.makeId()}`,
         "type": "note-text",
         "isPinned": false,
         "info": {
@@ -35,7 +34,32 @@ function createNotes() {
             "imgUrl": "",
             "videoUrl": "",
         },
-    }]
+        "categories": [
+            "videos",
+            "media",
+            "general:color"
+        ],
+        "bgc": "#ffff88"
+    },
+    {
+    "id": `${storageService.makeId()}`,
+        "type": "note-text",
+        "isPinned": false,
+        "info": {
+            "title": "kobi",
+            "txt": "we miss kobi",
+            "todos": [],
+            "imgUrl": "",
+            "videoUrl": "",
+        },
+        "categories": [
+            "videos",
+            "media",
+            "general:color"
+        ],
+        "bgc": "#ffff88"
+    }
+]
     return notes;
 }
 function createNote(type, isPinned, info) {
@@ -50,17 +74,13 @@ function showNotes(notes, searchStr, filterStr) {
     filterStr = filterStr.toLowerCase()
     if (filterStr === 'all') return notes
     return notes.filter(note => {
-        return (note.info.title.toLowerCase().includes(searchStr) ||
-                note.info.txt.toLowerCase().includes(searchStr) ||
-                note.info.todos.some(todo => todo.txt.toLowerCase().includes(searchStr))) &&
-            (note.categories.some(category => category.toLowerCase().includes(filterStr)))
+     return (note.info.title.toLowerCase().includes(searchStr) ||note.info.txt.toLowerCase().includes(searchStr)) 
     })
 }
-function remove(noteId) {
-    return storageService.remove(NOTES_KEY, noteId)
+function post(note) {
+    return storageService.post(NOTES_KEY, note)
 }
 
-function save(note) {
-    if (note.id) return storageService.put(NOTES_KEY, note)
-    else return storageService.post(NOTES_KEY, note)
+function postMany(mails) {
+    return storageService.postMany(NOTES_KEY, mails)
 }
