@@ -4,9 +4,9 @@ export default {
             <h1>Books</h1>
             </div>
             <nav>
-                <router-link to="/" active-class="active-link" exact>Home</router-link> |
-                <router-link to="/book" active-class="active-link" >Books</router-link> |
-                <router-link to="/about" active-class="active-link" >About</router-link>
+                <router-link to="/" active-class="active-link" exact>Books</router-link> |
+                <router-link to="/book" active-class="active-link" >Email</router-link> |
+                <router-link to="/about" active-class="active-link" >Note</router-link>
             </nav>
         </header>
     `,
