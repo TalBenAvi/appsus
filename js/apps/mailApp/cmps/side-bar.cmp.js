@@ -1,5 +1,5 @@
 
-// import emailApp from "../pages/email-app.cmp.js"
+import emailApp from "../pages/email-app.cmp.js"
 
 export default {
    props:['categories'],
@@ -54,9 +54,9 @@ export default {
         }
 
     },
-    // components: {
-    //     emailApp
-    // }
+    components: {
+        emailApp
+    }
 }
 
 /* <section class="email-menu flex">
