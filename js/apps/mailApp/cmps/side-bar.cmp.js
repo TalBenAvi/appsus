@@ -10,13 +10,13 @@ export default {
         </button>
 
         <section class="side-bar email-menu flex" >
-            <a  :class="{active: isActive}" @click="makeActive">All</a>
+            <a :class="{active: isActive}" @click="makeActive">All</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Inbox</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Sent</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Archive</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Drafts</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Trash</a>
-            <!-- <span class="flex">
+        <!-- <span class="flex">
                 <i class="fas fa-mail-bulk" style="opacity: 0.54"></i>
                 <span>All</span>
             </span>
@@ -30,12 +30,11 @@ export default {
             </span>
             </div>
 
+
+          
+
             <div v-if="categories" v-for="(category,idx) in categories" :key="category.text">
             <a :class="{active: isActive}" @click="makeActive">All</a> -->
-
-            <!-- <a href=""></a> -->
-            <!-- </div> -->
-
 
         </section>
     </aside>
@@ -46,10 +45,7 @@ export default {
         }
     },
     methods: {
-        makeActive(event){
-            // console.log(event);
-            this.isActive = !this.isActive;
-        },
+        
         categoryToShow(category) {
             console.log(category);
             return category.text.split(':')[0]
@@ -63,6 +59,12 @@ export default {
         
 
     },
+    computed: {
+        makeActive(event){
+            // console.log(event);
+            this.isActive = !this.isActive;
+        }
+    }
     // components: {
     //     emailApp
     // }
