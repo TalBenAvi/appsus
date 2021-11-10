@@ -1,5 +1,5 @@
 
-// import emailApp from "../pages/email-app.cmp.js"
+import emailApp from "../pages/email-app.cmp.js"
 
 export default {
    props:['categories'],
@@ -10,16 +10,17 @@ export default {
         </button>
 
         <section class="side-bar email-menu flex" >
-            <!-- <a  :class="{active: isActive}" @click="makeActive">All</a>
+            <a  :class="{active: isActive}" @click="makeActive">All</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Inbox</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Sent</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Archive</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Drafts</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Trash</a>
-            <span class="flex">
+            <!-- <span class="flex">
                 <i class="fas fa-mail-bulk" style="opacity: 0.54"></i>
                 <span>All</span>
-            </span> -->
+            </span>
+            </section> -->
             <!-- <div class="email-menu-list" v-if="categories" v-for="category in categories" >
             <span class="flex">
                 <i :class="category.icon" style="opacity: 0.54"></i>
@@ -27,12 +28,13 @@ export default {
 
              
             </span>
-            </div> -->
-
-            <div v-for="(category,index) in categories" :key="category.text">
-            <!-- <a :class="{active: isActive}" @click="makeActive">All</a> -->
-            
             </div>
+
+            <div v-if="categories" v-for="(category,idx) in categories" :key="category.text">
+            <a :class="{active: isActive}" @click="makeActive">All</a> -->
+
+            <!-- <a href=""></a> -->
+            <!-- </div> -->
 
 
         </section>
@@ -51,7 +53,14 @@ export default {
         categoryToShow(category) {
             console.log(category);
             return category.text.split(':')[0]
+        },
+        kkk(){
+            alert('yes')
+        },
+        nnn(){
+            alert('no')
         }
+        
 
     },
     // components: {
