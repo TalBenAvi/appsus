@@ -10,8 +10,6 @@ export default {
         class="keep-app">
 
             <main>
-                <note-add @save="saveNote"/>
-                
                 <note-list :notes="notesToShow"
                 v-if="pinnedNotes"
                 /> 
@@ -32,29 +30,12 @@ export default {
                     this.notes = res
                 })
         },
-        saveNote(note) {
-            keepService.save(note)
-                .then(() => this.loadNotes())
-        },
         setFilter(filter) {
             this.filterBy = filter
         },
         setSearch(searchStr) {
             this.searchBy = searchStr
         },
-        toggleIsDone({ noteId, todoIdx }) {
-            keepService.toggleIsDone({ noteId, todoIdx })
-                .then(res => this.notes = res)
-        },
-        deleteNote(noteId) {
-            keepService.remove(noteId)
-                .then(() => this.loadNotes())
-        },
-        pinNote(note) {
-            keepService.togglePinNode(note)
-                .then((res) => this.notes = res)
-        },
-
     },
     computed: {
         pinnedNotes() {
