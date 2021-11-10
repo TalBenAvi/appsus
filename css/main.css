@@ -1,3 +1,40 @@
-*{
-color: aqua;
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium';
+}
+
+body {
+    margin: 0;
+    font-size: 20px;
+}
+.home-page{
+    height: 84vh; 
+    text-align: center;
+}
+/* header */
+
+.app-header {
+    padding: 10px;
+    height: 8vh;
+    background-color: #A63F03;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* footer */
+.app-footer {
+    padding: 10px;
+    height: 8vh;
+    background-color: #A63F03;
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
 }
