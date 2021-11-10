@@ -1,4 +1,5 @@
 @import url(./apps/missEmail/main.css);
+@import url(../lib/animate.css);
 
 * {
     box-sizing: border-box;
