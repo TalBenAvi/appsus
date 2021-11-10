@@ -45,6 +45,11 @@
     color: #d61200;
 }
 
+/* .email-menu{
+    height: 500px;
+    width: 500px;
+} */
+
 @media (min-width: 1000px) {
     .mail-compose-btn {
         position: initial;
