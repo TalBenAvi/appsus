@@ -4,9 +4,11 @@ const NOTES_KEY = 'notes';
 
 export const keepService = {
     query,
-    _createNotes,
+    createNotes,
     createNote,
     showNotes,
+    save,
+    remove,
 }
 function query() {
     return storageService.query(NOTES_KEY)
@@ -14,14 +16,14 @@ function query() {
             if (res.length) {
                 return res
             } else {
-                return postMany(_createNotes())
+                return postMany(createNotes())
                     .then(res => {
                         return res
                     })
             }
         })
 }
-function _createNotes() {
+function createNotes() {
     const notes = [{
         "id": `${storageService.makeId}`,
         "type": "note-text",
@@ -53,4 +55,12 @@ function showNotes(notes, searchStr, filterStr) {
                 note.info.todos.some(todo => todo.txt.toLowerCase().includes(searchStr))) &&
             (note.categories.some(category => category.toLowerCase().includes(filterStr)))
     })
+}
+function remove(noteId) {
+    return storageService.remove(NOTES_KEY, noteId)
+}
+
+function save(note) {
+    if (note.id) return storageService.put(NOTES_KEY, note)
+    else return storageService.post(NOTES_KEY, note)
 }

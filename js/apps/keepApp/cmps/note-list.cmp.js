@@ -1,4 +1,4 @@
-import notePrev from './note-preview.js'
+// import notePrev from './note-preview.js'
 
 export default {
     props: ['notes'],
