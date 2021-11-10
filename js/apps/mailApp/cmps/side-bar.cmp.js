@@ -59,15 +59,9 @@ export default {
         
 
     },
-    computed: {
-        makeActive(event){
-            // console.log(event);
-            this.isActive = !this.isActive;
-        }
+    components: {
+        // emailApp
     }
-    // components: {
-    //     emailApp
-    // }
 }
 
 /* <section class="email-menu flex">
