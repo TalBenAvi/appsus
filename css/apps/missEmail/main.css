@@ -1,2 +1,14 @@
 @import url(./pages/email.css);
 @import url(./cmps/side-bar.css);
+
+.email-app {
+    width: 100%;
+    margin-top: 20px;
+}
+
+@media (min-width: 1000px) {
+    .btn-apps, .note-app, .email-app, .app-header .apps-menu {
+        margin-right: 30px;
+        margin-left: 0;
+    }
+}

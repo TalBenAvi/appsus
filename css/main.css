@@ -38,6 +38,13 @@ body {
    height: 84vh;
    flex-grow: 1;
 }
+
+button{
+    border: none;
+    cursor: pointer;
+    /* font-family: inherit; */
+    font-size: 1em;
+}
 /* footer */
 .app-footer {
     padding: 10px;
