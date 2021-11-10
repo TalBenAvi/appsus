@@ -5,10 +5,11 @@ const options = {
     el: '#app',
     router,
     template: `
-    <app-header></app-header>
-    <!-- <router-view></router-view> -->
-    <app-footer></app-footer>
-
+    <section class="app">
+       <app-header></app-header>
+       <router-view></router-view>
+       <app-footer></app-footer>
+    </section>
     `,  components: {
         appHeader,
         appFooter,
