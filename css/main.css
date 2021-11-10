@@ -32,6 +32,12 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+/* app-main */
+.email-app{
+   display: flex;
+   height: 84vh;
+   flex-grow: 1;
+}
 /* footer */
 .app-footer {
     padding: 10px;
