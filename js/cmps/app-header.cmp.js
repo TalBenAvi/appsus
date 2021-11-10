@@ -1,7 +1,7 @@
 export default {
     template: `
         <header class="app-header">
-            <h1>Books</h1>
+            <h1>AppSus</h1>
             </div>
             <nav>
                 <router-link to="/" active-class="active-link" exact>Home</router-link> |
