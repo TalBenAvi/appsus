@@ -1,4 +1,4 @@
-
+import notePrev from './note-preview.js'
 
 export default {
     props: ['notes'],
@@ -15,4 +15,15 @@ export default {
         </div>
     </section>
     `,
+    computed: {
+        pinnedNotes() {
+            return this.notes.filter(note => note.isPinned)
+        },
+        otherNotes() {
+            return this.notes.filter(note => !note.isPinned)
+        }
+    },
+    components: {
+        notePrev
+    },
 }
