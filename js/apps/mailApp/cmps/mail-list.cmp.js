@@ -2,14 +2,14 @@
 
 export default {
     template: `
-    <transition
+    <!-- <transition
     enter-active-class="animate__animated animate__fadeInDownBig"
         leave-active-class="animate__animated animate__fadeOutLeft"
         >
-       <section class="mails-list">
-
-       </section>
-    </transition>
-    
+      
+    </transition> -->
+    <section class="mails-list">
+           
+           </section>
     `
 }

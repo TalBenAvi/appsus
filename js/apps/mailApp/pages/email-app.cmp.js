@@ -38,7 +38,7 @@ export default {
                 text: 'trash',
                 icon: 'fas fa-trash-alt'
             }
-        ]
+        ],
         }
     },
     components: {
