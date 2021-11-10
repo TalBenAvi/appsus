@@ -25,7 +25,7 @@ body {
 .app-header {
     padding: 10px;
     height: 8vh;
-    background-color: #A63F03;
+    background-color: lightgray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +34,7 @@ body {
 .app-footer {
     padding: 10px;
     height: 8vh;
-    background-color: #A63F03;
+    background-color: lightgray;
     text-align: center;
     font-size: xx-large;
     font-family: 'Courier New', Courier, monospace;
