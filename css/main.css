@@ -39,3 +39,31 @@ body {
     font-size: xx-large;
     font-family: 'Courier New', Courier, monospace;
 }
+
+/* .app-nav {
+    align-self: start;
+    position: absolute;
+    z-index: 100;
+    top: 20px;
+    right: 30px;
+}
+
+.app-nav .menu-icon {
+    font-size: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    z-index: 200;
+    position: absolute;
+    top: -15px;
+    right: 10px;
+}
+
+.app-nav .menu-icon {
+    font-size: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    z-index: 200;
+    position: absolute;
+    top: -15px;
+    right: 10px;
+} */
