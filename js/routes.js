@@ -39,22 +39,22 @@ const routes = [
             },
         ]
     },
-    {
-        path: '/books',
-        component: bookApp
-    },
-    {
-        path: '/book/:bookId?/edit',
-        component: bookEdit
-    },
-    {
-        path: '/book/:bookId',
-        component: bookDetails
-    },
-    {
-        path: '/email',
-        component: bookApp
-    },
+    // {
+    //     path: '/books',
+    //     component: bookApp
+    // },
+    // {
+    //     path: '/book/:bookId?/edit',
+    //     component: bookEdit
+    // },
+    // {
+    //     path: '/book/:bookId',
+    //     component: bookDetails
+    // },
+    // {
+    //     path: '/email',
+    //     component: bookApp
+    // },
     // {
     //     path: '/email/:bookId?/edit',
     //     component: bookEdit
@@ -63,10 +63,10 @@ const routes = [
     //     path: '/email/:bookId',
     //     component: bookDetails
     // },
-    {
-        path: '/notes',
-        component: bookApp
-    },
+    // {
+    //     path: '/notes',
+    //     component: bookApp
+    // },
 ];
 
 export const router = new VueRouter({ routes });
