@@ -17,16 +17,11 @@ export default {
             <a :class="{active: isActive}" @click="isActive = !isActive">Drafts</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Trash</a>
         </section>
-
-
     </aside>
     `,
     data(){
         return {
-            
-                isActive: false,
-            
-            
+               isActive: false,
         }
     },
     methods: {
