@@ -1,8 +1,7 @@
-
 import emailApp from "../pages/email-app.cmp.js"
 
 export default {
-   props:['categories'],
+    props: ['categories'],
     template: `
     <aside class="email-side-bar">
         <button class="mail-compose-btn flex justify-center align-center">
@@ -10,13 +9,13 @@ export default {
         </button>
 
         <section class="side-bar email-menu flex" >
-            <a  :class="{active: isActive}" @click="makeActive">All</a>
+            <a :class="{active: isActive}" @click="makeActive">All</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Inbox</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Sent</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Archive</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Drafts</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Trash</a>
-            <!-- <span class="flex">
+        <!-- <span class="flex">
                 <i class="fas fa-mail-bulk" style="opacity: 0.54"></i>
                 <span>All</span>
             </span>
@@ -30,37 +29,36 @@ export default {
             </span>
             </div>
 
+
+          
+
             <div v-if="categories" v-for="(category,idx) in categories" :key="category.text">
             <a :class="{active: isActive}" @click="makeActive">All</a> -->
-
-            <!-- <a href=""></a> -->
-            <!-- </div> -->
-
 
         </section>
     </aside>
     `,
-    data(){
+    data() {
         return {
-               isActive: false,
+            isActive: false,
         }
     },
     methods: {
-        makeActive(event){
-            // console.log(event);
-            this.isActive = !this.isActive;
-        },
+
         categoryToShow(category) {
             console.log(category);
             return category.text.split(':')[0]
         },
-        kkk(){
+        kkk() {
             alert('yes')
         },
-        nnn(){
+        nnn() {
             alert('no')
-        }
-        
+        },
+        makeActive(){
+
+        },
+
 
     },
     components: {
