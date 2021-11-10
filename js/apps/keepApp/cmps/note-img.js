@@ -1,0 +1,32 @@
+import { eventBus } from '../../../services/event-bus-service.js'
+export default {
+    template: `
+    <section class="note-img">
+            <img v-if="note.info.imgUrl" :src="note.info.imgUrl" alt="no img">
+            <div v-else>
+                <input  type="text" v-model="note.info.imgUrl" @input="reportVal"
+                    placeholder="paste URL here"/>
+                <input  type="file" ref="file"  @change="onFilePicked"/>
+            </div>
+    </section>
+    `,
+    data() {
+        return {
+            note: {
+                id: null,
+                type: 'noteImg',
+                isPinned: false,
+                info: {
+                    title: '',
+                    txt: '',
+                    todos: [],
+                    imgUrl: '',
+                    videoUrl: '',
+                },
+                categories: ['photos', 'media'],
+                bgc: '#ffff88'
+            }
+        }
+    },
+
+}
