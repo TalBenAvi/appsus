@@ -2,10 +2,70 @@
     list-style: none;
     break-inside: avoid;
     max-width: 500px;
-    background: rgb(0, 0, 0);
+    background: rgb(255, 255, 136);
     padding: 1em;
     border-radius: 2px;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
     margin: -2px;
     margin-bottom: 20px;
+}
+
+.note-preview * {
+    width: fit-content;
+}
+
+.note-preview i {
+    font-size: 1.1rem;
+}
+
+.note-preview img {
+    width: 100%;
+    max-width: 300px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.note-preview iframe {
+    height: unset;
+    width: 100%;
+}
+
+.note-preview input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: google-sans;
+    max-width: 200px;
+    margin-bottom: 16px;
+}
+.note-preview .title-input {
+    margin-top: 16px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.note-preview .txt-input {
+    background: transparent;
+    font-size: 16px;
+}
+
+.note-main-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.keep-app .text-area-input {
+    resize: none;
+    background-color: transparent;
+    font-family: google-sans;
+    font-size: 1.1rem ;
+    border: none;
+    outline: none;
+    width: 100% ;
+    overflow: hidden;
+}
+
+.note-title .text-area-input {
+    font-size: 1.2rem ;
+    font-weight: bold;
 }

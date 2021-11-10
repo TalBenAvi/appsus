@@ -8,7 +8,6 @@ export default {
     template: `
         <section 
         class="keep-app">
-
             <main>
                 <note-list :notes="notesToShow"
                 v-if="pinnedNotes"

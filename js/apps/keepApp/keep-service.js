@@ -58,7 +58,43 @@ function createNotes() {
             "general:color"
         ],
         "bgc": "#ffff88"
-    }
+    },
+    {
+    "id": `${storageService.makeId()}`,
+        "type": "note-text",
+        "isPinned": false,
+        "info": {
+            "title": "kobi",
+            "txt": "we miss kobi",
+            "todos": [],
+            "imgUrl": "",
+            "videoUrl": "",
+        },
+        "categories": [
+            "videos",
+            "media",
+            "general:color"
+        ],
+        "bgc": "#ffff88"
+    },
+    {
+        "id": `${storageService.makeId()}`,
+            "type": "note-text",
+            "isPinned": false,
+            "info": {
+                "title": "kobi",
+                "txt": "we miss kobi",
+                "todos": [],
+                "imgUrl": "",
+                "videoUrl": "",
+            },
+            "categories": [
+                "videos",
+                "media",
+                "general:color"
+            ],
+            "bgc": "#ffff88"
+        },
 ]
     return notes;
 }
