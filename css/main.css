@@ -1,6 +1,8 @@
-/* @import url("") */
+@import url("/js/apps/mailApp/css/email.css");
+
 * {
     box-sizing: border-box;
+    font-family: 'roberto';
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -40,6 +42,29 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+@font-face {
+    font-family: 'Roboto';
+    
+    src: url('./fonts/Roboto-Regular.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+   
+    src: url('./fonts/Roboto-Italic.ttf');
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    
+    src: url('./fonts/Roboto-Bold.ttf');
+    font-style: normal;
+    font-weight: bold;
+}
 /* .app-nav {
     align-self: start;
     position: absolute;
