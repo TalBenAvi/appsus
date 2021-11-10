@@ -1,0 +1,39 @@
+
+
+
+
+.flex{
+    display: flex;
+}
+.justify-center {
+    justify-content: center;
+}
+.align-center {
+    align-items: center;
+}
+
+.mail-compose-btn {
+    background-color: #fff;
+    gap: 10 px;
+    color: #3c4043;
+    border-radius: 50%;
+    margin-bottom: 30 px;
+    position: fixed;
+    padding: 20 px;
+    bottom: 40 px;
+    right: 40 px;
+    z-index: 10;
+    box-shadow: -1px 1px 8px rgb(81 86 90 / 30%), 0 1px 11px 6px rgb(60 64 67 / 15%);
+}
+
+@media (min-width: 1000px) {
+    .mail-compose-btn {
+        position: initial;
+        padding: 10 px 24 px 10 px 15 px;
+        box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+        border-radius: 2 em;
+        z-index: initial;
+    }
+}
+
+
