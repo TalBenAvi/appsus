@@ -1,5 +1,4 @@
 import notePrev from './note-prev.js'
-
 export default {
     props: ['notes'],
     template: `

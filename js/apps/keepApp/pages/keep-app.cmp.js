@@ -71,6 +71,7 @@ export default {
                 .then(() => this.loadNotes())
         },
         setFilter(filter) {
+            console.log(filter);
             this.filterBy = filter
         },
         setSearch(searchStr) {
