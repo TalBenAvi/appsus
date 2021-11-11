@@ -12,16 +12,14 @@ export default {
     },
     props: ['note'],
     template: `
-        <transition>
+        <transition >
                 <section class="note-preview" :class="note.type" :style="{backgroundColor: bgc}"draggable="true">
                 <button title="Delete" @click="deleteNote">
                         <i class="fas fa-trash-alt"></i>
                     </button>
-
                 <button title="Pin" @click="pinNote">
                         <i class="fas fa-thumbtack" :style="pinNoteColor"></i>
                     </button>
-
                     <button title="Share" @click="shareNote">
                         <i class="fas fa-share-alt"></i>
                     </button>
@@ -31,12 +29,10 @@ export default {
                             <span class="color-opt" style="background-color: rgb(255, 136, 136);" @click="setColor('rgb(255, 136, 136)')"></span>
                             <span class="color-opt" style="background-color: rgb(170, 255, 238);" @click="setColor('rgb(170, 255, 238)')"></span>
                             <span class="color-opt" style="background-color: rgb(170, 200, 255);" @click="setColor('rgb(170, 200, 255)')"></span>
-                           
                         </div>
                     </i>
                     <component :note="note" :bgc="bgc" :is="cmp" @offEditMode="offEdit"/>
                 </section>
-
         </transition>
         `,
     data() {
@@ -48,13 +44,6 @@ export default {
         }
     },
     methods: {
-        offEdit() {
-            this.editMode = false
-        },
-       
-        setColor(color) {
-            this.bgc = color
-        },
         deleteNote() {
             eventBus.$emit('deleteNote', this.note.id)
             const msg = {
@@ -101,7 +90,6 @@ export default {
                     str = `${note.txt}`
                     break
             }
-
             return str
         },
         showColors() {

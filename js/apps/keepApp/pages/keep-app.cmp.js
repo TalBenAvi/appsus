@@ -3,7 +3,6 @@ import noteAdd from '../cmps/note-add.cmp.js'
 import sideBar from '../cmps/side-bar.cmp.js'
 import { keepService } from '../keep-service.js'
 import { eventBus } from '../../../services/event-bus-service.js'
-
 export default {
     props: [],
     template: `
@@ -89,7 +88,6 @@ export default {
             keepService.togglePinNode(note)
                 .then((res) => this.notes = res)
         },
-
     },
     computed: {
         pinnedNotes() {
@@ -108,7 +106,6 @@ export default {
         this.notes = this.loadNotes()
         eventBus.$on('toggleIsDone', this.toggleIsDone)
         eventBus.$on('deleteNote', this.deleteNote)
-        eventBus.$on('searchInKeep', this.setSearch)
         eventBus.$on('onSaveNote', this.saveNote)
         eventBus.$on('pinNote', this.pinNote)
         eventBus.$on('onUpdateColor', this.saveNote)
@@ -116,7 +113,6 @@ export default {
     destroyed() {
         eventBus.$off('toggleIsDone', this.toggleIsDone)
         eventBus.$off('deleteNote', this.deleteNote)
-        eventBus.$off('searchInKeep', this.setSearch)
     },
     components: {
         noteList,
