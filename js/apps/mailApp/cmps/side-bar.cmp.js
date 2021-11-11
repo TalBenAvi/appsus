@@ -1,46 +1,33 @@
-import emailApp from "../pages/email-app.cmp.js"
+// import emailApp from "../pages/email-app.cmp.js"
 
 export default {
     props: ['categories'],
     template: `
     <aside class="email-side-bar">
-        <button class="mail-compose-btn flex justify-center align-center">
+        <button @click="composeClick" class="mail-compose-btn flex justify-center align-center">
         <img :key="'img'" src="assets/img/plus.png" class="inline">
         </button>
 
         <section class="side-bar email-menu flex" >
-            <a :class="{active: isActive}" @click="makeActive">All</a>
+            <!-- <a :class="{active: isActive}" @click="makeActive">All</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Inbox</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Sent</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Archive</a>
             <a :class="{active: isActive}" @click="isActive = !isActive">Drafts</a>
-            <a :class="{active: isActive}" @click="isActive = !isActive">Trash</a>
-        <!-- <span class="flex">
-                <i class="fas fa-mail-bulk" style="opacity: 0.54"></i>
-                <span>All</span>
-            </span>
-            </section> -->
-            <!-- <div class="email-menu-list" v-if="categories" v-for="category in categories" >
-            <span class="flex">
-                <i :class="category.icon" style="opacity: 0.54"></i>
-                <span>{{category.text}}</span>
-
-             
-            </span>
-            </div>
-
-
-          
-
-            <div v-if="categories" v-for="(category,idx) in categories" :key="category.text">
-            <a :class="{active: isActive}" @click="makeActive">All</a> -->
-
+            <a :class="{active: isActive}" @click="isActive = !isActive">Trash</a> -->
+            <a @click="filterMails('')" >All</a>
+            <a @click="filterMails('inbox')" >Inbox</a>
+            <a @click="filterMails('sent')" >Sent</a>
+            <a @click="filterMails('archive')" >Archive</a>
+            <a @click="filterMails('drafts')" >Drafts</a>
+            <a @click="filterMails('trash')" >Trash</a>
         </section>
     </aside>
     `,
     data() {
         return {
             isActive: false,
+            isComposeClick:false,
         }
     },
     methods: {
@@ -49,21 +36,22 @@ export default {
             console.log(category);
             return category.text.split(':')[0]
         },
-        kkk() {
-            alert('yes')
+        composeClick(){
+            console.log('click');
+            this.$emit('click')
         },
-        nnn() {
-            alert('no')
-        },
-        makeActive(){
-
-        },
+        filterMails(filterBy){
+            this.$emit('filterd',filterBy)
+        }
 
 
     },
-    components: {
-        // emailApp
-    }
+    // computed:{
+
+    // },
+    // components: {
+    //     emailApp
+    // }
 }
 
 /* <section class="email-menu flex">

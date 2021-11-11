@@ -2,7 +2,7 @@
 @import url(./cmps/side-bar.css);
 @import url(./cmps/mail-list.css);
 @import url(./cmps/mail-preview.css);
-
+@import url(./cmps/mail-compose.css);
 .email-app {
     width: 100%;
     margin-top: 20px;
