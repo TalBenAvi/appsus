@@ -39,7 +39,7 @@ export default {
         return {
             cmp: 'txtCmp',
             editMode: false,
-            bgc: 'rgb(136, 255, 243)',
+            bgc: 'rgb(170, 255, 238)',
             isShowingColors: false
         }
     },

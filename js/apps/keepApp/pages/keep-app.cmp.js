@@ -102,7 +102,7 @@ export default {
             console.log(filterStr);
             const notesToShow = this.notes.filter(note => {
                 console.log(note.categories);
-                return (note.categories.includes(filterStr));
+                return (note.categories.includes(filterStr)||note.categories.includes(`${filterStr}:color`));
             });
             return notesToShow;
         }

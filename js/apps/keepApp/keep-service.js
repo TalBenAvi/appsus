@@ -41,6 +41,7 @@ function createNotes() {
             "videoUrl": "",
         },
         "categories": [
+            "all",
             "notes",
             "fun:color"
         ],
@@ -58,6 +59,7 @@ function createNotes() {
             "videoUrl": "https://www.youtube.com/watch?v=qz0aGYrrlhU&list=RDCMUCWv7vMbMWH4-V0ZXdmDpPBA&index=1",
         },
         "categories": [
+            "all",
             "videos",
             "fun:color"
         ],
@@ -75,6 +77,7 @@ function createNotes() {
                 "videoUrl": "",
             },
             "categories": [
+                "all",
                 "photos",
                 "fun:color"
             ],
@@ -104,6 +107,7 @@ function createNotes() {
                 "videoUrl": "",
             },
             "categories": [
+                "all",
                 "todos",
                 "fun:color"
             ],
@@ -121,6 +125,7 @@ function createNotes() {
                     "videoUrl": "",
                 },
                 "categories": [
+                    "all",
                     "notes",
                     "fun:color"
                 ],
@@ -138,8 +143,8 @@ function createNotes() {
                         "videoUrl": "",
                     },
                     "categories": [
-                        "videos",
-                        "media",
+                        "all",
+                        "photos",
                         "fun:color"
                     ],
                     "bgc":"rgb(170, 200, 255)"
