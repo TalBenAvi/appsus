@@ -8,6 +8,11 @@ export const keepService = {
     showNotes,
     post,
     postMany,
+    toggleIsDone,
+    getById,
+    remove,
+    save,
+    togglePinNode,
 }
 function query() {
     return storageService.query(NOTES_KEY)
@@ -39,36 +44,18 @@ function createNotes() {
             "media",
             "general:color"
         ],
-        "bgc": "#ffff88"
+        "bgc": "#f35788"
     },
     {
     "id": `${storageService.makeId()}`,
-        "type": "note-text",
+        "type": "note-video",
         "isPinned": false,
         "info": {
-            "title": "kobi",
-            "txt": "we miss kobi",
+            "title": "",
+            "txt": "",
             "todos": [],
             "imgUrl": "",
-            "videoUrl": "",
-        },
-        "categories": [
-            "videos",
-            "media",
-            "general:color"
-        ],
-        "bgc": "#ffff88"
-    },
-    {
-    "id": `${storageService.makeId()}`,
-        "type": "note-text",
-        "isPinned": false,
-        "info": {
-            "title": "kobi",
-            "txt": "we miss kobi",
-            "todos": [],
-            "imgUrl": "",
-            "videoUrl": "",
+            "videoUrl": "https://www.youtube.com/watch?v=qz0aGYrrlhU&list=RDCMUCWv7vMbMWH4-V0ZXdmDpPBA&index=1",
         },
         "categories": [
             "videos",
@@ -79,13 +66,13 @@ function createNotes() {
     },
     {
         "id": `${storageService.makeId()}`,
-            "type": "note-text",
+            "type": "note-image",
             "isPinned": false,
             "info": {
-                "title": "kobi",
-                "txt": "we miss kobi",
+                "title": "",
+                "txt": "",
                 "todos": [],
-                "imgUrl": "",
+                "imgUrl": "assets/img/memePic.jpg",
                 "videoUrl": "",
             },
             "categories": [
@@ -93,8 +80,56 @@ function createNotes() {
                 "media",
                 "general:color"
             ],
-            "bgc": "#ffff88"
+            "bgc": "rgb(136, 187, 255)"
         },
+    {
+        "id": `${storageService.makeId()}`,
+            "type": "note-todo",
+            "isPinned": false,
+            "info": {
+                "title": "chores",
+                "txt": "",
+                "todos": [{
+                    "txt": "learn vue",
+                    "isDone": false
+                },
+                {
+                    "txt": "buy clothes to the winter",
+                    "isDone": true
+                },
+                {
+                    "txt": "find a job",
+                    "isDone": false
+                },
+            ],
+                "imgUrl": "",
+                "videoUrl": "",
+            },
+            "categories": [
+                "notes",
+                "todos",
+                "general:color"
+            ],
+            "bgc": "rgb(255, 136, 136)"
+        },
+        {
+            "id": `${storageService.makeId()}`,
+                "type": "note-text",
+                "isPinned": false,
+                "info": {
+                    "title": "kobi",
+                    "txt": "we miss kobi",
+                    "todos": [],
+                    "imgUrl": "",
+                    "videoUrl": "",
+                },
+                "categories": [
+                    "videos",
+                    "media",
+                    "general:color"
+                ],
+                "bgc": "#f35788"
+            },
 ]
     return notes;
 }
@@ -119,4 +154,32 @@ function post(note) {
 
 function postMany(mails) {
     return storageService.postMany(NOTES_KEY, mails)
+}
+function toggleIsDone({ noteId, todoIdx }) {
+    return query()
+        .then(res => {
+            const note = res.find(note => (note.id === noteId))
+            note.info.todos[todoIdx].isDone = !(note.info.todos[todoIdx].isDone)
+            save(note)
+            return res
+        })
+}
+function getById(noteId) {
+    return storageService.get(NOTES_KEY, noteId)
+}
+function remove(noteId) {
+    return storageService.remove(NOTES_KEY, noteId)
+}
+
+function save(note) {
+    if (note.id) return storageService.put(NOTES_KEY, note)
+    else return storageService.post(NOTES_KEY, note)
+}
+
+function togglePinNode(note) {
+    note.isPinned = !note.isPinned
+    return save(note)
+        .then(() => {
+            return query()
+        })
 }

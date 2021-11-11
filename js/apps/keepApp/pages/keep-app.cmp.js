@@ -9,9 +9,9 @@ export default {
         <section 
         class="keep-app">
             <main>
-                <note-list :notes="notesToShow"
-                v-if="pinnedNotes"
-                /> 
+                <note-add @save="saveNote"/>
+                <hr>
+                <note-list :notes="notesToShow" v-if="pinnedNotes"/> 
             </main>
         </section>
     `,
@@ -28,6 +28,10 @@ export default {
                 .then(res => {
                     this.notes = res
                 })
+        },
+        saveNote(note) {
+            keepService.save(note)
+                .then(() => this.loadNotes())
         },
         setFilter(filter) {
             this.filterBy = filter
@@ -51,19 +55,12 @@ export default {
     },
     created() {
         this.notes = this.loadNotes()
-        eventBus.$on('toggleIsDone', this.toggleIsDone)
         eventBus.$on('deleteNote', this.deleteNote)
-        eventBus.$on('searchInKeep', this.setSearch)
         eventBus.$on('onSaveNote', this.saveNote)
-        eventBus.$on('pinNote', this.pinNote)
-        eventBus.$on('onUpdateColor', this.saveNote)
 
     },
     destroyed() {
-        eventBus.$off('toggleIsDone', this.toggleIsDone)
         eventBus.$off('deleteNote', this.deleteNote)
-        eventBus.$off('searchInKeep', this.setSearch)
-
     },
     components: {
         noteList,
