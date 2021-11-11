@@ -110,6 +110,7 @@ export default {
                 .then((res) => {
                     this.mails = res
                 })
+                .then(this.loadMails())
         },
 
     },

@@ -57,6 +57,7 @@ export default {
             // console.log(this.mail);
             // return (!this.mail.isStarred) ? 'far fa-star' : 'fas fa-star'
             const starStr = this.mail.isStarred ? 'active' : 'disabled';
+            
             return 'assets/svg/star-' + starStr + '.svg'
         },
         isSentMail() {

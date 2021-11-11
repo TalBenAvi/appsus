@@ -1,6 +1,6 @@
 import { storageService } from "../../../services/async-storage-service.js"
 import { utilService } from "../../../services/util-service.js"
-
+import { eventBus } from "../../../services/event-bus-service.js"
 const MAILS_KEY = 'mails'
 
 export const mailService = {
@@ -118,8 +118,10 @@ function toggleStar(mailId) {
 
             save(targetMail)
             console.log('res',res);
+            
             return res
         })
+        
 }
 
 function getIndex(mailId) {
