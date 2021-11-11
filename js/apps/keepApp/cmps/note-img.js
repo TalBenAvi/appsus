@@ -14,7 +14,7 @@ export default {
         return {
             note: {
                 id: null,
-                type: 'noteImg',
+                type: 'note-image',
                 isPinned: false,
                 info: {
                     title: '',
@@ -24,7 +24,7 @@ export default {
                     videoUrl: '',
                 },
                 categories: ['photos', 'media'],
-                bgc: '#ffff88'
+                bgc: 'rgb(136, 255, 243);'
             }
         }
     },

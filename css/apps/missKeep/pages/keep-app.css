@@ -1,22 +1,22 @@
 .keep-app * {
     color: #202124;
 }
-
+.main{
+    width: 90%; 
+}
 .keep-app {
     display: flex;
-    width: 100%;
+    align-self:end;
     font-family: google-sans;
 }
 
-.keep-app i,
-h2,
-p {
+.keep-app i,h2,p {
     color: #1F1F1F;
 }
 
 .keep-app>main {
-    width: 100%;
-    margin-left: 50px;
+    width:90%;
+    margin-left: 100px;
 }
 
 .keep-app i {
@@ -30,21 +30,38 @@ p {
 
 @media (min-width: 625px) {
     .note-list {
-        column-count: 2 !important;
+        column-count: 2;
+    }
+    .keep-app>main {
+        margin-left: 0px;
     }
 }
 
 @media (max-width: 625px) {
     .note-list {
-        column-count: 1 !important;
+        column-count: 1;
     }
     .search-bar>input {
         width: 120px;
+    }
+    .keep-app>main {
+        margin-left: 40px;
     }
 }
 
 @media (min-width: 1000px) {
     .note-list {
-        column-count: 3 !important;
+        column-count: 3;
+    }
+    .keep-app>main {
+        margin-left: 80px;
+    }
+}
+@media (min-width: 1200px) {
+    .note-list {
+        column-count: 4;
+    }
+    .keep-app>main {
+        margin-left: 100px;
     }
 }

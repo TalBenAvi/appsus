@@ -12,12 +12,27 @@ export default {
     },
     props: ['note'],
     template: `
-        <transition>
-                <section 
-                class="note-preview" :class="note.type" :style="{backgroundColor: bgc}"draggable="true">
+        <transition >
+                <section class="note-preview" :class="note.type" :style="{backgroundColor: bgc}"draggable="true">
+                <button title="Delete" @click="deleteNote">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                <button title="Pin" @click="pinNote">
+                        <i class="fas fa-thumbtack" :style="pinNoteColor"></i>
+                    </button>
+                    <button title="Share" @click="shareNote">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <i class="fas fa-palette color-btn" title="Color" @mouseover="showColors" @mouseleave="hideColors">
+                    <div class="color-btns" v-if="isShowingColors">
+                            <span class="color-opt" style="background-color: rgb(255, 255, 136);" @click="setColor('rgb(255, 255, 136)')"></span>
+                            <span class="color-opt" style="background-color: rgb(255, 136, 136);" @click="setColor('rgb(255, 136, 136)')"></span>
+                            <span class="color-opt" style="background-color: rgb(170, 255, 238);" @click="setColor('rgb(170, 255, 238)')"></span>
+                            <span class="color-opt" style="background-color: rgb(170, 200, 255);" @click="setColor('rgb(170, 200, 255)')"></span>
+                        </div>
+                    </i>
                     <component :note="note" :bgc="bgc" :is="cmp" @offEditMode="offEdit"/>
                 </section>
-
         </transition>
         `,
     data() {
@@ -27,17 +42,6 @@ export default {
             bgc: 'rgb(136, 255, 243)',
             isShowingColors: false
         }
-    },
-    methods: {
-
-        offEdit() {
-            this.editMode = false
-        },
-       
-        setColor(color) {
-            this.bgc = color
-        },
-       
     },
     methods: {
         deleteNote() {
@@ -65,12 +69,10 @@ export default {
         setShareBody() {
             const note = this.note.info
             let str = ''
-
             switch (this.note.type) {
                 case 'noteTxt':
                     str = `${note.txt}`
                     break
-
                 case 'noteTodos':
                     let todosStr = ''
                     note.todos.forEach(todo => {
@@ -78,20 +80,16 @@ export default {
                     })
                     str = `${todosStr}`
                     break
-
                 case 'noteImg':
                     str = `${note.imgUrl}`
                     break
-
                 case 'noteVideo':
                     str = `${note.videoUrl}`
                     break
-
                 default:
                     str = `${note.txt}`
                     break
             }
-
             return str
         },
         showColors() {
@@ -106,35 +104,23 @@ export default {
         updateFilterByColor() {
             const currColorIdx = this.note.categories.findIndex(category => category.includes('color'))
             if (currColorIdx !== -1) this.note.categories.splice(currColorIdx, 1)
-
-            let filter = 'general'
+            let filter = 'fun'
             switch (this.bgc) {
                 case 'rgb(255, 255, 136)':
-                    filter = 'general'
+                    filter = 'fun'
                     break
                 case 'rgb(255, 136, 136)':
                     filter = 'work'
                     break
-                case 'rgb(255, 204, 136)':
-                    filter = 'cars'
-                    break
-                case 'rgb(204, 255, 153)':
-                    filter = 'insurance'
-                    break
                 case 'rgb(170, 255, 238)':
                     filter = 'health'
                     break
-                case 'rgb(136, 187, 255)':
+                case 'rgb(170, 200, 255)':
                     filter = 'family'
                     break
-                case 'rgb(255, 255, 255)':
-                    filter = 'diet'
-                    break
-
                 default:
                     break
             }
-
             this.note.categories.push(`${filter}:color`)
         }
     },
@@ -143,10 +129,9 @@ export default {
             this.bgc = ev.value
         },
         pinNoteColor() {
-            if (this.note.isPinned) return 'color: #0092ff; -webkit-text-stroke: 2px black;'
+            if (this.note.isPinned) return 'color: #ffffff; -webkit-text-stroke: 2px black;'
         }
     },
-
     created() {
         switch (this.note.type) {
             case 'note-text':
@@ -163,9 +148,6 @@ export default {
                 break
         }
         this.bgc = this.note.bgc
-    },
-    destroyed() {
-
     },
     watch: {
         bgc() {

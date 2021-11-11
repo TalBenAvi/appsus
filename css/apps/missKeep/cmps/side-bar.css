@@ -1,0 +1,60 @@
+.keep-side-bar {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+    margin-top: 3px;
+    position: absolute;
+    transition: all .4s;
+    width: 60px;
+}
+
+.keep-side-bar:hover {
+    width: 120px;
+    background-color: #fbfbfbe8;
+}
+
+.keep-app .side-bar-icons {
+    margin-right: 10px;
+    z-index: 10;
+}
+
+.keep-app .side-bar-category {
+    display: flex;
+    align-items: center;
+}
+
+.keep-app .side-bar-category:hover *:not(i) {
+    color: white;
+}
+
+.keep-side-bar>* {
+    border-radius: 0 3em 3em 0;
+    padding: 5px;
+    transition: all .4s;
+}
+
+.keep-side-bar>*:hover {
+    cursor: pointer;
+    background-color: #0092ff;
+    color: white;
+}
+
+.fa-circle.fun {
+    color: rgb(255, 255, 136)
+}
+
+.fa-circle.work {
+    color: rgb(255, 136, 136)
+}
+
+.fa-circle.health {
+    color: rgb(170, 255, 238)
+}
+.fa-circle.family {
+    color: rgb(170, 200, 255)
+}
+.animate__animated.animate__backInLeft,
+.animate__animated.animate__backOutLeft {
+    --animate-duration: .3s;
+}

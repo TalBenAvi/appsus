@@ -10,7 +10,7 @@ export default {
         return {
             note: {
                 id: null,
-                type: 'noteTxt',
+                type: 'note-text',
                 isPinned: false,
                 info: {
                     title: '',
@@ -20,7 +20,7 @@ export default {
                     videoUrl: ''
                 },
                 categories: ['notes'],
-                bgc: '#ffff88'
+                bgc: 'rgb(136, 255, 243);'
             }
         }
     },

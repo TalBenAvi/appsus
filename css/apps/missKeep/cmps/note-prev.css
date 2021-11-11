@@ -11,18 +11,14 @@
 .note-preview i {
     font-size: 1.1rem;
 }
-.note-image {
-    margin-left: 0;
-}
 .note-preview img {
     width: 100%;
-    max-width:400px;
     object-fit: contain;
     object-position: center;
 }
 
 .note-preview iframe {
-    height: unset;
+    height:max-content;
     width: 100%;
 }
 
