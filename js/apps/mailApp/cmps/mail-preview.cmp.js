@@ -1,8 +1,13 @@
+import { utilService } from "../../../services/util-service.js";
 export default {
     props: ['mail'],
     template: `
     
-    <article class="mail-preview" v-bind:class="[mail.isRead ? 'read' : '']">
+    <article class="mail-preview" 
+    v-bind:class="[mail.isRead ? 'read' : '']"
+    
+    @click="showMail"
+    >
       <section class="small-prev-container">
 
         
@@ -17,15 +22,38 @@ export default {
             <span class="mail-subject">{{mail.subject}}</span>
          </span>
 
-         <div class="mail-body">
+         <!-- <div class="mail-body">
             {{mail.body}} 
-          </div>
+          </div> -->
+          <section class="email-preview-expended" v-if="isClicked">
+            <div class="email-header">
+             <div>
+             From: <{{mail.sender}}@gmail.com>
+             </div>
+             <div>
+             Sent at: {{mail.sendAt}}
+              </div>
+            </div>
+
+             <article>
+                 {{mail.body}}
+             </article>
+          </section>
       </section>
     </article>
     `,
-    // methods: {
+    data(){
+        return {
+            isClicked: false,
 
-    // },
+        }
+    },
+    methods: {
+        showMail(){
+            this.isClicked = !this.isClicked
+        }
+
+    },
     computed: {
         starred() {
             console.log(this.mail);
@@ -37,7 +65,13 @@ export default {
         isRead(mail) {
             console.log('maill', mail);
             return ''
+        },
+        getDate(){
+
         }
+    },
+    components:{
+        utilService
     }
 }
 

@@ -183,7 +183,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: true,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -194,7 +194,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: true,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -205,7 +205,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -216,7 +216,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -227,7 +227,7 @@ function createFirstMails() {
             categories: ['inbox', 'starred'],
             to: 'you',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: true
         },
         {
@@ -238,7 +238,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -249,7 +249,7 @@ function createFirstMails() {
             categories: ['inbox', 'starred'],
             to: 'you',
             isRead: true,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: true
         },
         {
@@ -260,7 +260,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: true,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -271,7 +271,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -282,7 +282,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -293,7 +293,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: true,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -304,7 +304,7 @@ function createFirstMails() {
             categories: ['inbox'],
             to: 'you',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -315,7 +315,7 @@ function createFirstMails() {
             categories: ['drafts'],
             to: 'Rotem Carmon',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -326,7 +326,7 @@ function createFirstMails() {
             categories: ['inbox', 'archived'],
             to: 'you',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
         {
@@ -337,7 +337,7 @@ function createFirstMails() {
             categories: ['inbox', 'archived'],
             to: 'Rotem Carmon',
             isRead: false,
-            sentAt: Date.now(),
+            sentAt: new Date(),
             isStarred: false
         },
 

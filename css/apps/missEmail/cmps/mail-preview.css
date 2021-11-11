@@ -8,9 +8,9 @@
     border-bottom: 1px solid rgba(199, 199, 199, 0.678);
     gap: 20px;
     transition: all .4s;
-    
 }
-.read{
+
+.read {
     background-color: rgba(242, 245, 245, 0.8);
 }
 
@@ -19,6 +19,7 @@
     box-shadow: 0 0 6px 1px #b8b8b8f0;
     background-color: rgb(218, 218, 218);
 } */
+
 .mail-preview:hover {
     box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
@@ -53,4 +54,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-right: 20px;
+}
+
+.mail-preview .email-preview-expended {
+    background-color: #fff;
+    padding: 20px 100px;
+    gap: 20px;
+    line-height: 1.75em;
 }
