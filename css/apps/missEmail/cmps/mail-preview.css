@@ -1,5 +1,4 @@
-
-.email{
+.email {
     position: relative;
 }
 
@@ -41,6 +40,7 @@
     cursor: pointer;
     padding: 5px;
     margin: 5px;
+    background-color: transparent;
 }
 
 .mail-info {
@@ -68,5 +68,14 @@
     padding: 20px 100px;
     gap: 20px;
     width: 100%;
-    line-height: 1.75em; 
+    line-height: 1.75em;
+}
+
+.mail-data {
+    text-align: right;
+    padding: 0.8em;
+    display: inline-block;
+}
+.star-btn{
+    background-color: transparent;
 }

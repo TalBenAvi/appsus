@@ -33,22 +33,27 @@
     text-decoration: none;
     color: #202124;
     gap: 5px;
+    
 }
+
+.side-bar:hover {
+    border-radius: 0 16px 16px 0;
+    background-color: #F1F3F4;
+}
+
 .active {
     background-color: #fce8e6;
     font-weight: bold;
     color: #d61200;
 }
+
 .email-menu .active {
     background-color: #fce8e6;
     font-weight: bold;
     color: #d61200;
 }
 
-/* .email-menu{
-    height: 500px;
-    width: 500px;
-} */
+
 
 @media (min-width: 1000px) {
     .mail-compose-btn {

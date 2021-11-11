@@ -54,7 +54,7 @@ function getBySearch(mails, searchWord) {
 }
 
 function post(mail) {
-    if (mail.to !== 'You') return sendMailToMe(mail)
+    if (mail.to === 'You') return sendMailToMe(mail)
     return storageService.post(MAILS_KEY, mail)
 }
 
@@ -109,14 +109,15 @@ function toggleStar(mailId) {
         .then(res => {
             const targetMail = res.find(mail => mail.id === mailId)
             targetMail.isStarred = !targetMail.isStarred
+            console.log('targetMail.categories',targetMail.status);
 
-            const idx = targetMail.categories.findIndex(c => c === 'starred')
+            const idx = targetMail.status.findIndex(c => c === 'starred')
 
-            if (idx === -1) targetMail.categories.push('starred')
-            else targetMail.categories.splice(idx, 1)
+            if (idx === -1) targetMail.status.push('starred')
+            else targetMail.status.splice(idx, 1)
 
             save(targetMail)
-
+            console.log('res',res);
             return res
         })
 }
@@ -128,16 +129,18 @@ function getIndex(mailId) {
         })
 }
 
-function createMail(sender, subject, body, category, to = 'you', isRead = false, sentAt = Date.now()) {
+function createMail(sender, subject, body, status, to = 'you', isRead = false, sentAt = Date.now()) {
     return {
         sender,
         subject,
         body,
-        categories: [category],
+        status: [status],
         to,
         isRead,
         sentAt,
-        isStarred: false
+        isStarred: false,
+        from: '',
+        to: '',
     }
 }
 
@@ -164,13 +167,16 @@ function save(mail) {
 function createSimpleMail() {
     return {
         sender: 'You',
+        senderName:'Me',
         subject: 'Wassap?',
         body: storageService.makeLorem(200),
-        categories: ['inbox'],
+        status: ['inbox'],
         to: 'you',
         isRead: false,
         sentAt: Date.now(),
-        isStarred: false
+        isStarred: false,
+        from: 'momo@gmail.com',
+        to: 'muki@appsus.com',
     }
 }
 
@@ -346,7 +352,7 @@ function createFirstMails() {
     const gmails = [{
         id: storageService.makeId(),
         senderName:'Momo',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'Hello My Friend',
         body: 'Hello!\nHow are you? I had a great time last night, call me if you wanna hang out again..',
         isRead: true,
@@ -358,7 +364,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Puki',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'It’s here. Arturia FX Collection 2',
         body: 'Arturia never disappoints. Like never.\nTheir FX Collection 2 comes at us with it’s classic blend of vintage effects\
          and modern enhancers, now with 3 new Bus FX, 4 new Modulation FX, an updated preset browser, and 200 new presets. FX Collection 2\
@@ -373,7 +379,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Tal ben avi',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'Introducing OB-Xa V: Legendary Growl Machine',
         body: "Hello Muki,\nWe are beyond excited to announce the launch of our newest software instrument,\
          the OB-Xa V. Welcome to music history, reborn!\nOB-Xa V a recreation of Oberheim's legendary analog\
@@ -390,7 +396,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Google Cloud',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'Account confirmation: Your Google Cloud free trial',
         body: 'Welcome to Google Cloud.\nLearn the fundamentals with this tutorial – and see what else you can do\
          for free on Google Cloud with our Always Free tier.\n\
@@ -410,7 +416,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Add',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'Massive Savings with Our Cyber Deals',
         body: 'Cyber Deals are here with 50% off!\n\
          Be ready to enjoy a massive 50% discount on Absolute Collection, Dorico, SpectraLayers,\
@@ -426,7 +432,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Udemy',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'Social Authentication Added',
         body: 'Hi Muki,\nWe take your account security seriously and wanted to update you on a change to your account.\
         A Google login was just added to your existing Udemy account.\n\
@@ -442,7 +448,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Robot API',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'OpenWeatherMap API Instruction',
         body: 'Dear Customer!\n Thank you for subscribing to Free OpenWeatherMap!\n\
         - Your API key is asdadasdasdasdasdaszxvx\n\
@@ -458,7 +464,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:' ',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'Asi shared "CaSep21-Materials" with you',
         body: 'Hi Muki,\nAsi invited you to view the folder "CaSep21-Materials" on Dropbox.\n\
         Enjoy!\nThe Dropbox team.\nAsi and others will be able to see when you view files in this folder. \
@@ -472,7 +478,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Drop Box',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'Just one more step to complete your Dropbox setup',
         body: 'Hi Muki,\n Your account is almost ready! To get the most out of Dropbox, be sure to install \
         Dropbox on your computer and phone.\n\
@@ -487,7 +493,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Udemy',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'My New Course - The Last Chance!',
         body: "Hey Everyone!\nPlease excuse the overly dramatic subject line. This is not the last chance ever to purchase my new \
         Command Line course, but it is the last chance to use the $9.99 coupon before it expires. If you missed my original announcement,\n\
@@ -501,7 +507,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Mika',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'Reminder!',
         body: 'Hey Muki!\n Just a reminder - you and Puki are invited over to dinner tomorrow!\nDont forget to BYOB\nSee ya there!!',
         isRead: true,
@@ -513,7 +519,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Arela',
-        status: 'inbox',
+        status: ['inbox'],
         subject: 'YOU WON THE LOTTERY!',
         body: "Dear Muki!\nI'm happy to inform you that you won the lottery!\n\n\nApril fools!!!",
         isRead: true,
@@ -527,7 +533,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'sent',
+        status: ['sent'],
         subject: 'Pizza',
         body: 'Hey Mika!\nDo you wanna eat pizza tomorrow?\nCall me if you wanna hangout',
         isRead: true,
@@ -539,7 +545,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'sent',
+        status: ['sent'],
         subject: 'Coding Academy',
         body: 'Hey,\nCan you tell me more about Coding Academy?\nI heard nice things about it.',
         isRead: true,
@@ -551,7 +557,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'drafts',
+        status: ['draft'],
         subject: 'What is Lorem Ipsum?',
         body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy \
         text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived \
@@ -567,7 +573,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'sent',
+        status: ['sent'],
         subject: 'Photos from last night',
         body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy \
         text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived \
@@ -583,7 +589,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'sent',
+        status: ['sent'],
         subject: 'Lets go to the circus',
         body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy \
         text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived \
@@ -599,7 +605,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'sent',
+        status: ['sent'],
         subject: 'PARTY AT MY PLACE',
         body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy \
         text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived \
@@ -615,7 +621,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'drafts',
+        status: ['draft'],
         subject: 'Diablo',
         body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy \
         text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived \
@@ -631,7 +637,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'sent',
+        status: ['sent'],
         subject: 'no subject',
         body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy \
         text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived \
@@ -649,7 +655,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'draft',
+        status: ['draft'],
         subject: 'I love you',
         body: 'Hey Mika!\nI thought about it a lot and...I love you.\nWill you marry me?',
         isRead: true,
@@ -661,7 +667,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'draft',
+        status: ['draft'],
         subject: 'Last Night',
         body: 'Hey Mika!\nLast night was so fun.\nWill you marry me?',
         isRead: true,
@@ -673,7 +679,7 @@ function createFirstMails() {
       {
         id: storageService.makeId(),
         senderName:'Me',
-        status: 'draft',
+        status: ['draft'],
         subject: 'Ice Cream',
         body: 'Hey Mika!\nDo you wanna go eat icecream sometime?.\nJust the two of us?',
         isRead: true,
@@ -684,6 +690,22 @@ function createFirstMails() {
       },
       //#endregion
     ];
-
+    // fixMails(gmails)
     return gmails
 }
+
+// function fixMails(gmails){
+//     for(var i = 0; i < gmails.length; i++){
+//         var mail = gmails[i];
+//         if(mail.isStarred){
+//             mail.status.push('starred')
+//         }
+//         if(typeof mail.sentAt === 'number'){
+//             console.log(typeof mail);
+//             mail.sentAt = utilService.formatDate(mail.sentAt)
+//          }
+//     }
+//     console.log('gmails ser',gmails);
+// }
+
+

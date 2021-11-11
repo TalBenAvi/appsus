@@ -1,5 +1,6 @@
 // import emailApp from "../pages/email-app.cmp.js"
-
+// var st = 'alkl';
+// st.charAt(0).toLocaleUpperCase(0)
 export default {
     props: ['categories'],
     template: `
@@ -8,19 +9,19 @@ export default {
         <img :key="'img'" src="assets/img/plus.png" class="inline">
         </button>
 
-        <section class="side-bar email-menu flex" >
-            <!-- <a :class="{active: isActive}" @click="makeActive">All</a>
-            <a :class="{active: isActive}" @click="isActive = !isActive">Inbox</a>
-            <a :class="{active: isActive}" @click="isActive = !isActive">Sent</a>
-            <a :class="{active: isActive}" @click="isActive = !isActive">Archive</a>
-            <a :class="{active: isActive}" @click="isActive = !isActive">Drafts</a>
-            <a :class="{active: isActive}" @click="isActive = !isActive">Trash</a> -->
+        <!-- <section class="side-bar email-menu flex" >
             <a @click="filterMails('')" >All</a>
             <a @click="filterMails('inbox')" >Inbox</a>
             <a @click="filterMails('sent')" >Sent</a>
             <a @click="filterMails('archive')" >Archive</a>
             <a @click="filterMails('drafts')" >Drafts</a>
             <a @click="filterMails('trash')" >Trash</a>
+        </section> -->
+        <section class="side-bar email-menu flex" v-for="category in categories">
+            <a class="category.text"
+             @click="filterMails(category.text) "
+
+            >{{category.text}}</a>
         </section>
     </aside>
     `,
@@ -29,6 +30,12 @@ export default {
             isActive: false,
             isComposeClick:false,
         }
+    },
+    created(){
+        this.categories.forEach((category) => {
+            category.text = category.text.charAt(0).toUpperCase() + category.text.slice(1);
+        })
+        
     },
     methods: {
 
@@ -41,9 +48,13 @@ export default {
             this.$emit('click')
         },
         filterMails(filterBy){
+            filterBy = filterBy.toLowerCase();
             this.$emit('filterd',filterBy)
         }
 
+
+    },
+    mounted(){
 
     },
     // computed:{
@@ -69,3 +80,11 @@ enter-active-class="animate__animated animate__backInLeft"
 leave-active-class="animate__animated animate__backOutLeft">
 <span class="capitalize" > {{categoryToShow(category)}}</span>
 </transition>  */
+
+
+// <a @click="filterMails('')" >All</a>
+// <a @click="filterMails('inbox')" >Inbox</a>
+// <a @click="filterMails('sent')" >Sent</a>
+// <a @click="filterMails('archive')" >Archive</a>
+// <a @click="filterMails('drafts')" >Drafts</a>
+// <a @click="filterMails('trash')" >Trash</a>
