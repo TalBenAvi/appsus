@@ -107,19 +107,13 @@ export default {
             const currColorIdx = this.note.categories.findIndex(category => category.includes('color'))
             if (currColorIdx !== -1) this.note.categories.splice(currColorIdx, 1)
 
-            let filter = 'general'
+            let filter = 'fun'
             switch (this.bgc) {
                 case 'rgb(255, 255, 136)':
-                    filter = 'general'
+                    filter = 'fun'
                     break
                 case 'rgb(255, 136, 136)':
                     filter = 'work'
-                    break
-                case 'rgb(255, 204, 136)':
-                    filter = 'cars'
-                    break
-                case 'rgb(204, 255, 153)':
-                    filter = 'insurance'
                     break
                 case 'rgb(170, 255, 238)':
                     filter = 'health'
@@ -127,10 +121,6 @@ export default {
                 case 'rgb(136, 187, 255)':
                     filter = 'family'
                     break
-                case 'rgb(255, 255, 255)':
-                    filter = 'diet'
-                    break
-
                 default:
                     break
             }

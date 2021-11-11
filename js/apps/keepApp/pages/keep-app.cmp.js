@@ -43,7 +43,7 @@ export default {
             },
             {
                 text: 'fun',
-                icon: 'fas fa-circle general'
+                icon: 'fas fa-circle fun'
             },
             {
                 text: 'work',

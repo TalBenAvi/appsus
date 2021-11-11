@@ -47,7 +47,7 @@ data() {
                 imgUrl: '',
                 videoUrl: '',
             },
-            categories: ['notes', 'general:color']
+            categories: ['notes', 'fun:color']
         },
         cmp: 'noteTxt'
     }

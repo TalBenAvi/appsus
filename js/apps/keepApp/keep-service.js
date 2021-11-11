@@ -42,7 +42,7 @@ function createNotes() {
         "categories": [
             "videos",
             "media",
-            "general:color"
+            "fun:color"
         ],
         "bgc": "#f35788"
     },
@@ -60,7 +60,7 @@ function createNotes() {
         "categories": [
             "videos",
             "media",
-            "general:color"
+            "fun:color"
         ],
         "bgc": "#ffff88"
     },
@@ -78,7 +78,7 @@ function createNotes() {
             "categories": [
                 "videos",
                 "media",
-                "general:color"
+                "fun:color"
             ],
             "bgc": "rgb(136, 187, 255)"
         },
@@ -108,7 +108,7 @@ function createNotes() {
             "categories": [
                 "notes",
                 "todos",
-                "general:color"
+                "fun:color"
             ],
             "bgc": "rgb(255, 136, 136)"
         },
@@ -126,7 +126,7 @@ function createNotes() {
                 "categories": [
                     "videos",
                     "media",
-                    "general:color"
+                    "fun:color"
                 ],
                 "bgc": "#f35788"
             },
