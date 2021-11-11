@@ -1,46 +1,29 @@
 import { utilService } from "../../../services/util-service.js";
+import mailSummery from "./mail-summery.cmp.js";
 export default {
     props: ['mail'],
     template: `
-    
+    <div class="email">
     <article class="mail-preview" 
-    v-bind:class="[mail.isRead ? 'read' : '']"
-    
-    @click="showMail"
-    >
+       v-bind:class="[mail.isRead ? 'read' : '']"
+       @click="showMail">
       <section class="small-prev-container">
-
-        
         <button class="star-btn">
             <i :class="starred"></i>
         </button>
-
-
         <span class="mail-info">
             <span class="mail-to" v-if="isSentMail">{{mail.to}}</span>
             <span class="mail-from" v-else>{{mail.sender}}</span>
             <span class="mail-subject">{{mail.subject}}</span>
          </span>
-
-         <!-- <div class="mail-body">
-            {{mail.body}} 
-          </div> -->
-          <section class="email-preview-expended" v-if="isClicked">
-            <div class="email-header">
-             <div>
-             From: <{{mail.sender}}@gmail.com>
-             </div>
-             <div>
-             Sent at: {{mail.sendAt}}
-              </div>
-            </div>
-
-             <article>
-                 {{mail.body}}
-             </article>
-          </section>
       </section>
+      
+     
     </article>
+    <mail-summery  :mail="mail" v-if="isClicked">
+
+</mail-summery>
+    </div>
     `,
     data(){
         return {
@@ -60,7 +43,7 @@ export default {
             return (!this.mail.isStarred) ? 'far fa-star' : 'fas fa-star'
         },
         isSentMail() {
-            return this.mail.categories.includes('sent mails')
+            return this.mail.status.includes('sent mails')
         },
         isRead(mail) {
             console.log('maill', mail);
@@ -71,7 +54,8 @@ export default {
         }
     },
     components:{
-        utilService
+        utilService,
+        mailSummery
     }
 }
 
@@ -79,3 +63,19 @@ export default {
 // <!-- <p>{{mail}}</p> -->
 // {active: mail.isRead , 'read': ''}"
 // v-bind:class="{read: mail.isRead , 'read': ''}
+
+
+{/* <section class="mail-preview-expended" v-if="isClicked">
+<div class="email-header">
+    <div>
+      From: <{{mail.sender}}@gmail.com>
+    </div>
+    <div>
+      Sent at: {{mail.sendAt}}
+    </div>
+</div>
+
+ <article>
+     {{mail.body}}
+ </article>
+</section> */}
