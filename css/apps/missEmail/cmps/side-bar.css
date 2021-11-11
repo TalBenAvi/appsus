@@ -33,7 +33,6 @@
     text-decoration: none;
     color: #202124;
     gap: 5px;
-    
 }
 
 .side-bar:hover {
@@ -53,8 +52,6 @@
     color: #d61200;
 }
 
-
-
 @media (min-width: 1000px) {
     .mail-compose-btn {
         position: initial;
@@ -73,4 +70,16 @@
     .email-menu>* {
         border-radius: 0 16px 16px 0;
     }
+}
+
+@media (max-width:700px) {
+    .email-side-bar {
+        display: flex;
+        height: 50px;
+        justify-content: space-around;
+    }
+    .email-app {
+        flex-direction: column;
+    }
+   
 }
