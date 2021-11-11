@@ -62,7 +62,7 @@ export default {
             const url = `/misterEmail/newMail/?note=true&type=${this.note.type}&subject=${this.note.info.title}&body=${this.setShareBody()}`
             this.$router.push(url)
         },
-        setShareBody() { //Share Note with Email
+        setShareBody() {
             const note = this.note.info
             let str = ''
 
