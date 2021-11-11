@@ -1,4 +1,4 @@
-// import { eventBus } from '../../../services/event-bus.js'
+import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
 
@@ -35,5 +35,17 @@ export default {
                 bgc: '#ffff88'
             }
         }
+    },
+    methods: {
+        reportVal() {
+            this.note.info.videoUrl = this.note.info.videoUrl.split('=')[1].split('&')[0]
+            this.$emit('setVal', this.note)
+        },
+        cleanInput() {
+            this.note.info.videoUrl = ''
+        }
+    },
+    created() {
+        eventBus.$on('cleanInput', this.cleanInput)
     }
 }

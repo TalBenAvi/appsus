@@ -18,11 +18,11 @@ export default {
                 <img src="assets/img/notepad.png">
             </button>
 
-            <button title="Todo" @click ="cmp='noteTodos'">
+            <button title="Todo list" @click ="cmp='noteTodos'">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/todo-list--v2.png"/>
             </button>
             
-            <button title="Photo" @click ="cmp='noteImg'">
+            <button title="Image" @click ="cmp='noteImg'">
                 <img src="assets/img/picture.png">
             </button>
             

@@ -28,5 +28,27 @@ export default {
             }
         }
     },
+    methods: {
+        reportVal() {
+            this.$emit('setVal', this.note)
 
+        },
+        onFilePicked() {
+            const file = event.target.files[0]
+            const fileReader = new FileReader()
+
+            fileReader.onload = () => {
+                this.note.info.imgUrl = fileReader.result
+                this.reportVal()
+            }
+
+            fileReader.readAsDataURL(file)
+        },
+        cleanInput() {
+            this.note.info.imgUrl = ''
+        }
+    },
+    created() {
+        eventBus.$on('cleanInput', this.cleanInput)
+    }
 }
