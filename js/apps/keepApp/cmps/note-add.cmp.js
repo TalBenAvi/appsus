@@ -47,18 +47,16 @@ data() {
                 imgUrl: '',
                 videoUrl: '',
             },
-            categories: ['notes', 'fun:color']
+            categories: ['all','notes', 'fun:color']
         },
         cmp: 'noteTxt'
     }
 },
 methods: {
     save() {
-        console.log('hi');
         if (this.note.type === 'note-todo') this.note.info.todos.pop()
         this.$emit('save', this.note)
         eventBus.$emit('cleanInput')
-
         const msg = {
             txt: `New note added`,
             type: 'success',
@@ -79,6 +77,7 @@ watch: {
                 this.note.type = 'note-text'
                 this.note.info.title = query.subject
                 this.note.info.txt = "Sender: " + query.sender + " | " + "To: " + query.to + " | " + query.body
+                console.log( this.note);
                 this.save()
                 this.$router.push('/missKeep')
             }

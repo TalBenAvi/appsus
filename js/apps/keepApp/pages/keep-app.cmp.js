@@ -74,9 +74,6 @@ export default {
             console.log(filter);
             this.filterBy = filter
         },
-        setSearch(searchStr) {
-            this.searchBy = searchStr
-        },
         toggleIsDone({ noteId, todoIdx }) {
             keepService.toggleIsDone({ noteId, todoIdx })
                 .then(res => this.notes = res)
@@ -100,7 +97,14 @@ export default {
             return this.notes.filter(note => !note.isPinned)
         },
         notesToShow() {
-            return keepService.showNotes(this.notes, this.searchBy, this.filterBy)
+            if (!this.filterBy) return this.notes;
+            const filterStr = this.filterBy;
+            console.log(filterStr);
+            const notesToShow = this.notes.filter(note => {
+                console.log(note.categories);
+                return (note.categories.includes(filterStr)||note.categories.includes(`${filterStr}:color`));
+            });
+            return notesToShow;
         }
     },
     created() {

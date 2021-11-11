@@ -32,7 +32,7 @@ export default {
                     videoUrl: ''
                 },
                 categories: ['videos', 'media'],
-                bgc: 'rgb(136, 255, 243);'
+                bgc: 'rgb(170, 255, 238);'
             }
         }
     },

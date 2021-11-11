@@ -20,7 +20,7 @@ export default {
                     videoUrl: ''
                 },
                 categories: ['notes'],
-                bgc: 'rgb(136, 255, 243);'
+                bgc: 'rgb(170, 255, 238);'
             }
         }
     },
