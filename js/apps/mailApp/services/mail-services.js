@@ -109,7 +109,7 @@ function toggleStar(mailId) {
         .then(res => {
             const targetMail = res.find(mail => mail.id === mailId)
             targetMail.isStarred = !targetMail.isStarred
-            console.log('targetMail.categories',targetMail.status);
+            console.log('targetMail.categories',targetMail.isStarred);
 
             const idx = targetMail.status.findIndex(c => c === 'starred')
 

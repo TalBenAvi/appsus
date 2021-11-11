@@ -30,7 +30,8 @@ export default {
     data(){
         return {
             isClicked: false,
-
+            isStarClicked:false,
+            starId: '',
         }
     },
     created(){
@@ -42,10 +43,17 @@ export default {
         showMail(){
             this.isClicked = !this.isClicked
         },
-        changeStar(mail){
+        changeStar(){
             // const isStar = this.mail.isStarred ? true : false;
             // console.log(mail);
             // this.mail.isStarred!=this.mail.isStarred;
+            this.isStarClicked = !this.isStarClicked;
+            this.starId = this.mail.id;
+            console.log('this',this.mail);
+            // setTimeout(() => {
+            //     console.log('koren');
+            //     this.$emit('starMail', this.mail)
+            // }, 500)
             this.$emit('starMail', this.mail)
         },
         onStarMail() {
@@ -54,10 +62,20 @@ export default {
     },
     computed: {
         starred() {
-            // console.log(this.mail);
+            // console.log('this.mail');
             // return (!this.mail.isStarred) ? 'far fa-star' : 'fas fa-star'
             const starStr = this.mail.isStarred ? 'active' : 'disabled';
+            // if(!this.isStarClicked && this.mail.id === this.starId){
+            //     setTimeout(() => {
+            //     this.$emit('starMail', this.mail)
+            //     this.mail.id= ''
+            //     this.isStarClicked=!this.isStarClicked
+            //     }, 10)
+            //     console.log(this.mail,starStr);
+            // }
             
+            
+            // this.$emit('starMail', this.mail)
             return 'assets/svg/star-' + starStr + '.svg'
         },
         isSentMail() {
