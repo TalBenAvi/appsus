@@ -8,7 +8,7 @@ export default {
           cols="50":rows="textRowsTitle"placeholder="Title"></textarea>            
            <!-- <br> -->
             <div class="todos-container" v-for="(line, idx) in note.info.todos" > 
-              <!-- <span class="delete-todo" @click.stop="deleteTodo(idx)"><i class="fas fa-trash-alt"></i></span>  -->
+              <span class="delete-todo" @click.stop="deleteTodo(idx)"><img src="assets/img/trash.png"></i></span> |
               <span :class="{'far fa-check-circle': line.isDone, 'far fa-circle': !line.isDone}" class="clickable" @click.stop="toggleIsDone(idx)"></span>
               <textarea class="note-txt txt-input text-area-input" :class="{done: line.isDone}" v-model="note.info.todos[idx].txt" 
               @input.stop="addNewLine(idx); onSave(); textRows(idx);" name="note-input" cols="50" :rows="rowsNumbers[idx]" placeholder="write your todo"></textarea>            
@@ -21,26 +21,33 @@ export default {
             rowsNumbers: [1]
         }
     },
+    created() {
+        document.addEventListener('click', this.cleanLastLine)
+        this.rowsNumbers = (this.note.info.todosRows) ? this.note.info.todosRows : [1]
+    },
+    destroyed() {
+        document.removeEventListener('click', this.cleanLastLine)
+    },
     methods: {
-        isDone(todo) {
-            return { done: todo.isDone }
-        },
-        toggleIsDone(todoIdx) {
-            this.note.info.todos[todoIdx].isDone = !this.note.info.todos[todoIdx].isDone // taking with the dom because it the only way it works
-            this.cleanLastLine()
-        },
         onSave() {
             eventBus.$emit('onSaveNote', this.note)
+        },
+        isDone(todo) {
+            return { done: todo.isDone }
         },
         addNewLine() {
             if (!this.checkIfLastLineIsEmpty()) this.note.info.todos.push({ txt: '', isDone: false })
         },
-        cleanLastLine() {
-            if (this.checkIfLastLineIsEmpty()) this.note.info.todos.pop()
-            this.onSave()
+        toggleIsDone(todoIdx) {
+            this.note.info.todos[todoIdx].isDone = !this.note.info.todos[todoIdx].isDone
+            this.cleanLastLine()
         },
         deleteTodo(idx) {
             this.note.info.todos.splice(idx, 1)
+            this.onSave()
+        },
+        cleanLastLine() {
+            if (this.checkIfLastLineIsEmpty()) this.note.info.todos.pop()
             this.onSave()
         },
         checkIfLastLineIsEmpty() {
@@ -68,12 +75,5 @@ export default {
 
             return numberOfLineBreaks + characterCount / 35 + 1
         },
-    },
-    created() {
-        document.addEventListener('click', this.cleanLastLine)
-        this.rowsNumbers = (this.note.info.todosRows) ? this.note.info.todosRows : [1]
-    },
-    destroyed() {
-        document.removeEventListener('click', this.cleanLastLine)
     },
 }

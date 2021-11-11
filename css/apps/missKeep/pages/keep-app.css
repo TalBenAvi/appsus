@@ -30,13 +30,13 @@ p {
 
 @media (min-width: 625px) {
     .note-list {
-        column-count: 2 !important;
+        column-count: 2;
     }
 }
 
 @media (max-width: 625px) {
     .note-list {
-        column-count: 1 !important;
+        column-count: 1;
     }
     .search-bar>input {
         width: 120px;
@@ -45,6 +45,11 @@ p {
 
 @media (min-width: 1000px) {
     .note-list {
-        column-count: 3 !important;
+        column-count: 3;
+    }
+}
+@media (min-width: 1200px) {
+    .note-list {
+        column-count: 4;
     }
 }

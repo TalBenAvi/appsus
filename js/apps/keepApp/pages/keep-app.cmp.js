@@ -1,14 +1,15 @@
 import noteList from '../cmps/note-list.cmp.js'
 import noteAdd from '../cmps/note-add.cmp.js'
+import sideBar from '../cmps/side-bar.cmp.js'
 import { keepService } from '../keep-service.js'
 import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
     props: [],
     template: `
-        <section 
-        class="keep-app">
+        <section class="keep-app">
             <main>
+            <side-bar :categories="categories" :isHovered="true" @setFilter="setFilter"/>
                 <note-add @save="saveNote"/>
                 <hr>
                 <note-list :notes="notesToShow" v-if="pinnedNotes"/> 
@@ -20,6 +21,43 @@ export default {
             notes: [],
             searchBy: '',
             filterBy: '',
+            categories: [{
+                text: 'all',
+                icon: 'fas fa-mail-bulk'
+            },
+            {
+                text: 'notes',
+                icon: 'far fa-sticky-note'
+            },
+            {
+                text: 'todos',
+                icon: 'fas fa-list'
+            },
+            {
+                text: 'photos',
+                icon: 'fas fa-image'
+            },
+            {
+                text: 'videos',
+                icon: 'fab fa-youtube'
+            },
+            {
+                text: 'general',
+                icon: 'fas fa-circle general'
+            },
+            {
+                text: 'work',
+                icon: 'fas fa-circle work'
+            },
+            {
+                text: 'family',
+                icon: 'fas fa-circle family'
+            },
+            {
+                text: 'health',
+                icon: 'fas fa-circle health'
+            },
+        ],
         }
     },
     methods: {
@@ -65,6 +103,6 @@ export default {
     components: {
         noteList,
         noteAdd,
-        // sideBar
+        sideBar,
     },
 }

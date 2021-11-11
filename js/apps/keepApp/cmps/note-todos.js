@@ -14,7 +14,7 @@ export default {
         return {
             note: {
                 id: null,
-                type: 'noteTodos',
+                type: 'note-todo',
                 isPinned: false,
                 categories: ['notes', 'todos'],
                 info: {
@@ -26,7 +26,8 @@ export default {
                 },
             },
             rowsNumbers: [1],
-            currLineIdx: 0
+            currLineIdx: 0,
+            bgc: 'rgb(136, 255, 243);'
         }
     },
     methods: {

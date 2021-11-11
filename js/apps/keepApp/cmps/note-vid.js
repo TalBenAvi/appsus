@@ -22,7 +22,7 @@ export default {
         return {
             note: {
                 id: null,
-                type: 'noteVideo',
+                type: 'note-video',
                 isPinned: false,
                 info: {
                     title: '',
@@ -32,7 +32,7 @@ export default {
                     videoUrl: ''
                 },
                 categories: ['videos', 'media'],
-                bgc: '#ffff88'
+                bgc: 'rgb(136, 255, 243);'
             }
         }
     },
