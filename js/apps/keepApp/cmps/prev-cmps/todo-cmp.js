@@ -6,7 +6,6 @@ export default {
         <li @click.stop="addNewLine('li')" class="note-main-area">
           <textarea class="note-title text-area-input"v-model="note.info.title" @input="onSave"name="note-input"
           cols="50":rows="textRowsTitle"placeholder="Title"></textarea>            
-           <!-- <br> -->
             <div class="todos-container" v-for="(line, idx) in note.info.todos" > 
               <span class="delete-todo" @click.stop="deleteTodo(idx)"><img src="assets/img/trash.png"></i></span> |
               <span :class="{'far fa-check-circle': line.isDone, 'far fa-circle': !line.isDone}" class="clickable" @click.stop="toggleIsDone(idx)"></span>
