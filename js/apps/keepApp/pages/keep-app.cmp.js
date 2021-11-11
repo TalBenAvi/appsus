@@ -42,7 +42,7 @@ export default {
                 icon: 'fab fa-youtube'
             },
             {
-                text: 'general',
+                text: 'fun',
                 icon: 'fas fa-circle general'
             },
             {

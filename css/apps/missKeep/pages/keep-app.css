@@ -1,22 +1,22 @@
 .keep-app * {
     color: #202124;
 }
-
+.main{
+    width: 90%;
+}
 .keep-app {
     display: flex;
     width: 100%;
     font-family: google-sans;
 }
 
-.keep-app i,
-h2,
-p {
+.keep-app i,h2,p {
     color: #1F1F1F;
 }
 
 .keep-app>main {
     width: 100%;
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
 
 .keep-app i {

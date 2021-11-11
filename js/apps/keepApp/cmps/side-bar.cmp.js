@@ -2,7 +2,7 @@ export default {
     props: ['categories', 'mainCounter', 'mainCounterIdx', 'isHovered'],
     template: `
       <aside @mouseover="toggleHover(true)"   @mouseleave="toggleHover(false)" class="keep-side-bar">  
-       <div v-if="categories" v-for="(category,idx) in categories" @click="filterBy(category)">
+       <span v-if="categories" v-for="(category,idx) in categories" @click="filterBy(category)">
          <span class="side-bar-category">
         <span class="main-counter" v-if="mainCounter && idx===mainCounterIdx">{{mainCounter}} </span>               
          <i :class="category.icon" class="side-bar-icons"> </i>
@@ -11,7 +11,7 @@ export default {
            <span class="capitalize" v-if="hover"> {{categoryToShow(category)}}</span>
          </transition>
         </span>
-       </div>
+       </span>
       </aside>
     `,
     data() {
