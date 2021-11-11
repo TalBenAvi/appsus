@@ -11,6 +11,7 @@ export const keepService = {
     toggleIsDone,
     getById,
     remove,
+    get,
     save,
     togglePinNode,
 }
@@ -40,11 +41,10 @@ function createNotes() {
             "videoUrl": "",
         },
         "categories": [
-            "videos",
-            "media",
+            "notes",
             "fun:color"
         ],
-        "bgc": "#f35788"
+        "bgc":"rgb(255, 255, 136)"
     },
     {
     "id": `${storageService.makeId()}`,
@@ -59,10 +59,9 @@ function createNotes() {
         },
         "categories": [
             "videos",
-            "media",
             "fun:color"
         ],
-        "bgc": "#ffff88"
+        "bgc":"rgb(255, 136, 136)"
     },
     {
         "id": `${storageService.makeId()}`,
@@ -76,11 +75,10 @@ function createNotes() {
                 "videoUrl": "",
             },
             "categories": [
-                "videos",
-                "media",
+                "photos",
                 "fun:color"
             ],
-            "bgc": "rgb(136, 187, 255)"
+            "bgc":"rgb(255, 136, 136)"
         },
     {
         "id": `${storageService.makeId()}`,
@@ -106,30 +104,46 @@ function createNotes() {
                 "videoUrl": "",
             },
             "categories": [
-                "notes",
                 "todos",
                 "fun:color"
             ],
-            "bgc": "rgb(255, 136, 136)"
+            "bgc":"rgb(170, 255, 238)"
         },
         {
             "id": `${storageService.makeId()}`,
                 "type": "note-text",
                 "isPinned": false,
                 "info": {
-                    "title": "kobi",
-                    "txt": "we miss kobi",
+                    "title": "Hello",
+                    "txt": "my name is koren",
                     "todos": [],
                     "imgUrl": "",
                     "videoUrl": "",
                 },
                 "categories": [
-                    "videos",
-                    "media",
+                    "notes",
                     "fun:color"
                 ],
-                "bgc": "#f35788"
+                "bgc":"rgb(170, 200, 255)"
             },
+            {
+                "id": `${storageService.makeId()}`,
+                    "type": "note-image",
+                    "isPinned": false,
+                    "info": {
+                        "title": "",
+                        "txt": "",
+                        "todos": [],
+                        "imgUrl": "assets/img/view.jpg",
+                        "videoUrl": "",
+                    },
+                    "categories": [
+                        "videos",
+                        "media",
+                        "fun:color"
+                    ],
+                    "bgc":"rgb(170, 200, 255)"
+                },
 ]
     return notes;
 }
@@ -175,7 +189,9 @@ function save(note) {
     if (note.id) return storageService.put(NOTES_KEY, note)
     else return storageService.post(NOTES_KEY, note)
 }
-
+function get(noteId) {
+    return storageService.get(NOTES_KEY, noteId)
+}
 function togglePinNode(note) {
     note.isPinned = !note.isPinned
     return save(note)

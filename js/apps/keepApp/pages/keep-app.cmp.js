@@ -8,8 +8,8 @@ export default {
     props: [],
     template: `
         <section class="keep-app">
+            <side-bar class="keep-side-bar" :categories="categories" :isHovered="true" @setFilter="setFilter"/>
             <main>
-            <side-bar :categories="categories" :isHovered="true" @setFilter="setFilter"/>
                 <note-add @save="saveNote"/>
                 <hr>
                 <note-list :notes="notesToShow" v-if="pinnedNotes"/> 
@@ -77,6 +77,19 @@ export default {
         setSearch(searchStr) {
             this.searchBy = searchStr
         },
+        toggleIsDone({ noteId, todoIdx }) {
+            keepService.toggleIsDone({ noteId, todoIdx })
+                .then(res => this.notes = res)
+        },
+        deleteNote(noteId) {
+            keepService.remove(noteId)
+                .then(() => this.loadNotes())
+        },
+        pinNote(note) {
+            keepService.togglePinNode(note)
+                .then((res) => this.notes = res)
+        },
+
     },
     computed: {
         pinnedNotes() {
@@ -93,12 +106,17 @@ export default {
     },
     created() {
         this.notes = this.loadNotes()
+        eventBus.$on('toggleIsDone', this.toggleIsDone)
         eventBus.$on('deleteNote', this.deleteNote)
+        eventBus.$on('searchInKeep', this.setSearch)
         eventBus.$on('onSaveNote', this.saveNote)
-
+        eventBus.$on('pinNote', this.pinNote)
+        eventBus.$on('onUpdateColor', this.saveNote)
     },
     destroyed() {
+        eventBus.$off('toggleIsDone', this.toggleIsDone)
         eventBus.$off('deleteNote', this.deleteNote)
+        eventBus.$off('searchInKeep', this.setSearch)
     },
     components: {
         noteList,
