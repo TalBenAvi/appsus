@@ -12,6 +12,9 @@ function loadFromStorage(key) {
     let data = localStorage.getItem(key);
     return (data) ? JSON.parse(data) : undefined;
 }
+function _formatTime(time) {
+    return time < 10 ? '0' + time : time;
+  }
 function formatDate(timestamp) {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     // prettier-ignore

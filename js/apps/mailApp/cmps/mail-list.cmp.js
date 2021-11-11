@@ -10,13 +10,16 @@ export default {
       
     </transition> -->
     <section class="mail-list"> 
-       <mail-preview v-for="mail in mails" :mail="mail" :key="mail.id"/>
+       <mail-preview v-for="mail in mails" :mail="mail" 
+       :key="mail.id"
+       @starMail="starMail"
+       />
     </section>
     `,
     // data(){
 
     // },
-    created(){
+    created(){     
         console.log('s',this.mails);
     },
     methods: {

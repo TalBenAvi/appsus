@@ -12,9 +12,9 @@ export default {
     template: `
     <main class="email-app flex">
         <!-- <h1>email</h1> -->
-        <side-bar @filterd="setMails" @click="composeClick"></side-bar>
-        <mail-list :mails="mails" ></mail-list>
-        <mail-compose  v-if="isComposeClick" ></mail-compose>
+        <side-bar @filterd="setMails" @click="composeClick" :categories="categories"></side-bar>
+        <mail-list :mails="mails" @starMail="starMail"></mail-list>
+        <mail-compose @close="composeClick" v-if="isComposeClick" ></mail-compose>
     </main>
     `,
     data() {
@@ -22,7 +22,8 @@ export default {
             mails: null,
             categories: [{
                     text: 'all',
-                    icon: 'fas fa-mail-bulk'
+                    icon: 'fas fa-mail-bulk',
+                    isActive:false
                 },
                 {
                     text: 'inbox',
@@ -30,23 +31,28 @@ export default {
                 },
                 {
                     text: 'sent',
-                    icon: 'fas fa-paper-plane'
+                    icon: 'fas fa-paper-plane',
+                    isActive:false
                 },
                 {
                     text: 'starred',
-                    icon: 'fas fa-star'
+                    icon: 'fas fa-star',
+                    isActive:false
                 },
                 {
                     text: 'archived',
-                    icon: 'fas fa-archive'
+                    icon: 'fas fa-archive',
+                    isActive:false
                 },
                 {
-                    text: 'drafts',
-                    icon: 'fas fa-pencil-ruler'
+                    text: 'draft',
+                    icon: 'fas fa-pencil-ruler',
+                    isActive:false
                 },
                 {
                     text: 'trash',
-                    icon: 'fas fa-trash-alt'
+                    icon: 'fas fa-trash-alt',
+                    isActive:false
                 }
             ],
             isComposeClick:false,
@@ -70,22 +76,40 @@ export default {
                 })
                 .then((mails) => {
                     console.log(this.mails);
+                    if(this.status==='all'){
+                        this.mails = mails;
+                        return;
+                    }
+                    // console.log(mails);
                    if(this.status){
-                    this.mails = mails.filter(mail => mail.status === this.status)
-                   } 
+                    this.mails = mails.filter(mail => {
+                        return mail.status.includes(this.status) &&
+                            (this.status === 'archived' || !mail.status.includes('archived'))
+                    })} 
                    console.log(this.mails);
                 })
         },
+        fixMails(){
+            // this.mail.sentAt = utilService.formatDate(this.mail.sentAt)
+        },
         composeClick(){
-            console.log('clicked');
+            // console.log('clicked');
             this.isComposeClick=! this.isComposeClick;
         },
         setMails(status){
+            if(this.status === status) return;
             console.log(status);
             this.status = status;
+            
             this.loadMails();
             // const mails = this.mails.filter(mail => mail.status === this.status);
             // this.mails = mails;
+        },
+        starMail(mail) {
+            mailService.toggleStar(mail.id)
+                .then((res) => {
+                    this.mails = res
+                })
         },
 
     },

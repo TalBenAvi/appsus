@@ -7,10 +7,10 @@ export default {
       <section class="mail-preview-expended" >
             <div class="email-header">
                 <div>
-                  From: <{{mail.sender}}@gmail.com>
+                  From: <{{mail.from}}>
                 </div>
                 <div>
-                  Sent at: {{mail.sendAt}}
+                  Sent at: {{mail.sentAt}}
                 </div>
             </div>
 
