@@ -1,8 +1,8 @@
-// import bookApp from './pages/book-app.cmp.js';
+import bookApp from './apps/booksApp/book-app.cmp.js';
 import homePage from './pages/home-page.cmp.js';
 import aboutPage from './pages/about-page.cmp.js';
-// import bookDetails from './pages/book-details.cmp.js';
-// import  bookEdit from './pages/book-edit.cmp.js';
+import bookDetails from './apps/booksApp/cmps/book-details.cmp.js';
+import  bookEdit from './apps/booksApp/cmps/book-edit.cmp.js';
 import notesApp from './apps/keepApp/pages/keep-app.cmp.js'
 import emailApp from './apps/mailApp/pages/email-app.cmp.js'
 const aboutTeam = {
@@ -40,30 +40,18 @@ const routes = [
             },
         ]
     },
-    // {
-    //     path: '/books',
-    //     component: bookApp
-    // },
-    // {
-    //     path: '/book/:bookId?/edit',
-    //     component: bookEdit
-    // },
-    // {
-    //     path: '/book/:bookId',
-    //     component: bookDetails
-    // },
-    // {
-    //     path: '/email',
-    //     component: bookApp
-    // },
-    // {
-    //     path: '/email/:bookId?/edit',
-    //     component: bookEdit
-    // },
-    // {
-    //     path: '/email/:bookId',
-    //     component: bookDetails
-    // },
+    {
+        path: '/books',
+        component: bookApp
+    },
+    {
+        path: '/book/:bookId?/edit',
+        component: bookEdit
+    },
+    {
+        path: '/book/:bookId',
+        component: bookDetails
+    },
     {
         path: '/notes',
         component: notesApp
