@@ -1,7 +1,8 @@
 export default {
     template: `
         <header class="app-header">
-            <h1>AppSus</h1>
+            <!-- <h1>AppSus</h1> -->
+            <img src="assets/img/logo.PNG">
             </div>
             <nav>
                 <!-- <i class="menu-icon fas fa-th fa-lg" ></i> -->
