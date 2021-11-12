@@ -16,7 +16,7 @@ export default {
                 id: null,
                 type: 'note-todo',
                 isPinned: false,
-                categories: ['notes', 'todos'],
+                categories: ['notes', 'todos','all'],
                 info: {
                     title: '',
                     txt: '',

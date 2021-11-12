@@ -23,7 +23,7 @@ export default {
                     imgUrl: '',
                     videoUrl: '',
                 },
-                categories: ['photos', 'media'],
+                categories: ['photos', 'all'],
                 bgc: 'rgb(170, 255, 238);'
             }
         }

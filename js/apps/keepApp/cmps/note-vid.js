@@ -31,7 +31,7 @@ export default {
                     imgUrl: '',
                     videoUrl: ''
                 },
-                categories: ['videos', 'media'],
+                categories: ['videos', 'all'],
                 bgc: 'rgb(170, 255, 238);'
             }
         }

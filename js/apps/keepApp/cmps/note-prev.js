@@ -63,27 +63,27 @@ export default {
             eventBus.$emit('pinNote', this.note)
         },
         shareNote() {
-            const url = `/misterEmail/newMail/?note=true&type=${this.note.type}&subject=${this.note.info.title}&body=${this.setShareBody()}`
+            const url = ``///enter url to open email here
             this.$router.push(url)
         },
         setShareBody() {
             const note = this.note.info
             let str = ''
             switch (this.note.type) {
-                case 'noteTxt':
+                case 'note-text':
                     str = `${note.txt}`
                     break
-                case 'noteTodos':
+                case 'note-todo':
                     let todosStr = ''
                     note.todos.forEach(todo => {
                         todosStr += 'O' + todo.txt + '\n'
                     })
                     str = `${todosStr}`
                     break
-                case 'noteImg':
+                case 'note-image':
                     str = `${note.imgUrl}`
                     break
-                case 'noteVideo':
+                case 'note-video':
                     str = `${note.videoUrl}`
                     break
                 default:
