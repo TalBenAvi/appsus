@@ -14,6 +14,7 @@ export const keepService = {
     get,
     save,
     togglePinNode,
+    createNoteKoren
 }
 function query() {
     return storageService.query(NOTES_KEY)
@@ -154,6 +155,14 @@ function createNotes() {
 }
 function createNote(type, isPinned, info) {
     return {
+        type,
+        isPinned,
+        info
+    }
+}
+function createNoteKoren(type, isPinned, info) {
+    return {
+        id:'',
         type,
         isPinned,
         info

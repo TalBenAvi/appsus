@@ -1,55 +1,72 @@
-import { utilService } from "../../../services/util-service.js";
+import {
+    utilService
+} from "../../../services/util-service.js";
 import mailSummery from "./mail-summery.cmp.js";
+import {
+    keepService
+} from "../../keepApp/keep-service.js";
 export default {
     props: ['mail'],
     template: `
-    <div class="email">
+    <div class="email"
+    @mouseover="onHover(true)"
+    @mouseleave="onHover(false)"
+     >
     <article class="mail-preview" 
        v-bind:class="[mail.isRead ? 'read' : '']"
-       @click="showMail">
-      <section class="small-prev-container">
+      >
+      <section  @click="showMail" class="small-prev-container">
         <button @click.stop="changeStar" class="star-btn">
             <!-- <i :class="starred"></i> -->
             <img :src="starred" alt="">
         </button>
-
 
         <span class="mail-info">
             <span>{{mail.senderName}}</span>
             <span class="mail-subject">{{mail.subject}}</span>
         </span>
       </section>
-      
-     <div class="mail-data">{{mail.sentAt}}</div>
+
+     <div :class="{hovered: isHovered}" v-if=!isHover class="mail-data">{{mail.sentAt}}</div>
+
+     <div v-else class="preview-btns-container flex" >
+      <img src="assets/svg/reply.svg" title="Reply">
+      <img src="assets/img/trash.png" title="Remove">
+      <img src="assets/img/unread.png" title="Mark as unread">
+      <img @click="sendNote(mail)" src="assets/svg/note.svg" title="Export as note">
+      <img src="assets/svg/fullscreen.svg" title="Full screen">
+      </div>
     </article>
 
     <mail-summery  :mail="mail" v-if="isClicked">
     </mail-summery>
+    
     </div>
     `,
-    data(){
+    data() {
         return {
             isClicked: false,
-            isStarClicked:false,
+            isStarClicked: false,
             starId: '',
+            isHover: false,
         }
     },
-    created(){
+    created() {
         // console.log(' this.mail.sentAt', this.mail.sentAt);
         // this.mail.sentAt = utilService.formatDate(this.mail.sentAt)
         // console.log('this.mail.sentAt',this.mail.sentAt);
     },
     methods: {
-        showMail(){
+        showMail() {
             this.isClicked = !this.isClicked
         },
-        changeStar(){
+        changeStar() {
             // const isStar = this.mail.isStarred ? true : false;
             // console.log(mail);
             // this.mail.isStarred!=this.mail.isStarred;
             this.isStarClicked = !this.isStarClicked;
             this.starId = this.mail.id;
-            console.log('this',this.mail);
+            console.log('this', this.mail);
             // setTimeout(() => {
             //     console.log('koren');
             //     this.$emit('starMail', this.mail)
@@ -59,23 +76,30 @@ export default {
         onStarMail() {
             this.$emit('starMail', this.mail)
         },
+        onHover(hover) {
+            this.isHover = hover
+        },
+        sendNote(mailInfo) {
+            console.log('mailInfo', mailInfo);
+            const info = {
+                info: {
+                    title: "Saved Mail",
+                    txt: mailInfo.body,
+                    todos: [],
+                    imgUrl: "",
+                    videoUrl: "",
+                }
+            }
+            const mail = keepService.createNoteKoren('note-text', false, info)
+            console.log('mail',mail);
+            // keepService.post(mail) TODO: Tal
+                
+
+        },
     },
     computed: {
         starred() {
-            // console.log('this.mail');
-            // return (!this.mail.isStarred) ? 'far fa-star' : 'fas fa-star'
             const starStr = this.mail.isStarred ? 'active' : 'disabled';
-            // if(!this.isStarClicked && this.mail.id === this.starId){
-            //     setTimeout(() => {
-            //     this.$emit('starMail', this.mail)
-            //     this.mail.id= ''
-            //     this.isStarClicked=!this.isStarClicked
-            //     }, 10)
-            //     console.log(this.mail,starStr);
-            // }
-            
-            
-            // this.$emit('starMail', this.mail)
             return 'assets/svg/star-' + starStr + '.svg'
         },
         isSentMail() {
@@ -85,11 +109,19 @@ export default {
             console.log('maill', mail);
             return ''
         },
-       
+        isHovered() {
+
+            if (this.isHoverd) {
+                console.log('hoverd', this.isHovered);
+            }
+            return this.isHoverd
+        }
+
     },
-    components:{
+    components: {
         utilService,
-        mailSummery
+        mailSummery,
+        keepService
     }
 }
 
@@ -99,17 +131,33 @@ export default {
 // v-bind:class="{read: mail.isRead , 'read': ''}
 
 
-{/* <section class="mail-preview-expended" v-if="isClicked">
-<div class="email-header">
-    <div>
-      From: <{{mail.sender}}@gmail.com>
+{
+    /* <section class="mail-preview-expended" v-if="isClicked">
+    <div class="email-header">
+        <div>
+          From: <{{mail.sender}}@gmail.com>
+        </div>
+        <div>
+          Sent at: {{mail.sendAt}}
+        </div>
     </div>
-    <div>
-      Sent at: {{mail.sendAt}}
-    </div>
-</div>
 
- <article>
-     {{mail.body}}
- </article>
-</section> */}
+     <article>
+         {{mail.body}}
+     </article>
+    </section> */
+}
+
+
+{
+    /* <div :class="{hovered: isHovered}" v-if=!isHover class="mail-data">{{mail.sentAt}}</div>
+
+    <div v-else class="preview-btns-container flex" >
+     <img src="assets/svg/reply.svg" title="Reply">
+     <img src="assets/img/trash.png" title="Remove">
+     <img src="assets/img/unread.png" title="Mark as unread">
+     <img @click="sendNote(mail)" src="assets/svg/note.svg" title="Export as note">
+     <img src="assets/svg/fullscreen.svg" title="Full screen">
+     </div>
+    </article> */
+}
