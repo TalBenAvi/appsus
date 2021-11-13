@@ -36,8 +36,9 @@ export default {
       <img @click="sendNote(mail)" src="assets/svg/note.svg" title="Export as note">
       <img src="assets/svg/fullscreen.svg" title="Full screen">
       </div>
-    </article>
 
+    </article>
+    <router-link v-if="isExportNoteClicked" to="/notes"></router-link>
     <mail-summery  :mail="mail" v-if="isClicked">
     </mail-summery>
     
@@ -49,12 +50,14 @@ export default {
             isStarClicked: false,
             starId: '',
             isHover: false,
+            isExportNoteClicked: false,
         }
     },
     created() {
         // console.log(' this.mail.sentAt', this.mail.sentAt);
         // this.mail.sentAt = utilService.formatDate(this.mail.sentAt)
         // console.log('this.mail.sentAt',this.mail.sentAt);
+        this.isExportNoteClicked = false;
     },
     methods: {
         showMail() {
@@ -88,10 +91,11 @@ export default {
                 imgUrl: "",
                 videoUrl: "",
             }
-            const mail = keepService.createNoteKoren('note-text', false, info)
+            const mail = keepService.createNote('note-text', false, info)
             console.log('mail',mail);
-            // keepService.post(mail) TODO: Tal
-                
+            keepService.post(mail) ;
+            this.isExportNoteClicked = true;
+            
 
         },
     },
