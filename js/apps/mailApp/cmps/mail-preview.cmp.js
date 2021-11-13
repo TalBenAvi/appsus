@@ -38,7 +38,7 @@ export default {
       </div>
 
     </article>
-    <router-link v-if="isExportNoteClicked" to="/notes"></router-link>
+    
     <mail-summery  :mail="mail" v-if="isClicked">
     </mail-summery>
     
@@ -95,6 +95,8 @@ export default {
             console.log('mail',mail);
             keepService.post(mail) ;
             this.isExportNoteClicked = true;
+            const url = `/notes`;
+            this.$router.push(url);
             
 
         },
@@ -163,3 +165,4 @@ export default {
      </div>
     </article> */
 }
+{/* <router-link v-if="isExportNoteClicked" to="/notes"></router-link> */}

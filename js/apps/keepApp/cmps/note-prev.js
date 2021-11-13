@@ -63,7 +63,7 @@ export default {
             eventBus.$emit('pinNote', this.note)
         },
         shareNote() {
-            const url = ``///enter url to open email here
+            const url = `/email`///enter url to open email here
             this.$router.push(url)
         },
         setShareBody() {
