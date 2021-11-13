@@ -82,13 +82,11 @@ export default {
         sendNote(mailInfo) {
             console.log('mailInfo', mailInfo);
             const info = {
-                info: {
-                    title: "Saved Mail",
-                    txt: mailInfo.body,
-                    todos: [],
-                    imgUrl: "",
-                    videoUrl: "",
-                }
+                title: "Saved Mail",
+                txt: mailInfo.body,
+                todos: [],
+                imgUrl: "",
+                videoUrl: "",
             }
             const mail = keepService.createNoteKoren('note-text', false, info)
             console.log('mail',mail);
