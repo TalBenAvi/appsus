@@ -16,10 +16,10 @@
     object-fit: contain;
     object-position: center;
 }
-.note-preview .li-video{
-    
+/* .note-preview .li-video{
+
     position: fixed;
-}
+} */
 
 .note-preview iframe {
     object-fit: contain;
