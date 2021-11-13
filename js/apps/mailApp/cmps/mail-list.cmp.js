@@ -27,6 +27,7 @@ export default {
             this.$emit('saveMail', mail)
         },
         removeMail(mail) {
+            alert('1')
             this.$emit('removeMail', mail)
         },
         archiveMail(mail) {

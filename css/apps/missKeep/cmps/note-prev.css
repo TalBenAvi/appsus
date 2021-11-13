@@ -17,6 +17,10 @@
     object-fit: contain;
     object-position: center;
 }
+.note-preview .li-video{
+    
+    position: fixed;
+}
 
 .note-preview iframe {
     height:fit-content;
