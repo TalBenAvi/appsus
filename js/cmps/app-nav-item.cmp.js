@@ -1,17 +1,9 @@
 export default {
     props: ['item'],
     template: `
-        <article
-        class="app-nav-item"
-        v-if="item"
-        >
-            <router-link
-            :to="route"
-            :style="color"
-            >
-                <i :class="item.icon"
-                class="item-icon"
-                ></i>
+        <article class="app-nav-item" v-if="item">
+            <router-link :to="route":style="color">
+            <i :class="item.icon"class="item-icon"></i>
                 <h3>
                     {{item.title}}
                 </h3>
