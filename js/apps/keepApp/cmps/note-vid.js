@@ -5,16 +5,9 @@ export default {
     props: [],
     template: `
     <section class="note-video">
-        <iframe v-if="note.info.videoUrl" 
-            width="200" height="100" 
-            :src="'https://www.youtube.com/embed/'+note.info.videoUrl" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-        ></iframe>
-
-        <input v-else type="text" v-model="note.info.videoUrl" 
-            @change="reportVal"placeholder="paste URL here"/>
+        <iframe v-if="note.info.videoUrl"  width="200" height="100" :src="'https://www.youtube.com/embed/'+note.info.videoUrl" title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"allowfullscreen></iframe>
+        <input v-else type="text" v-model="note.info.videoUrl" @change="reportVal"placeholder="paste URL here"/>
     </section>
     
     `,
@@ -22,7 +15,7 @@ export default {
         return {
             note: {
                 id: null,
-                type: 'note-video',
+                type: 'noteVideo',
                 isPinned: false,
                 info: {
                     title: '',
@@ -32,7 +25,7 @@ export default {
                     videoUrl: ''
                 },
                 categories: ['videos', 'all'],
-                bgc: 'rgb(170, 255, 238);'
+                bgc: '#ffff88'
             }
         }
     },

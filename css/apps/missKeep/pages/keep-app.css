@@ -30,7 +30,7 @@
 
 @media (min-width: 625px) {
     .note-list {
-        column-count: 2;
+          grid-template-columns: repeat(2, 50%);
     }
     .keep-app>main {
         margin-left: 0px;
@@ -39,8 +39,8 @@
 
 @media (max-width: 625px) {
     .note-list {
-        column-count: 1;
-    }
+        grid-template-columns: repeat(1, 100%);
+  }
     .search-bar>input {
         width: 120px;
     }
@@ -51,15 +51,15 @@
 
 @media (min-width: 1000px) {
     .note-list {
-        column-count: 3;
+          grid-template-columns: repeat(3, 33%);
     }
     .keep-app>main {
         margin-left: 80px;
     }
 }
 @media (min-width: 1200px) {
-    .note-list {
-        column-count: 4;
+     .note-list {
+          grid-template-columns: repeat(4,25%);
     }
     .keep-app>main {
         margin-left: 100px;

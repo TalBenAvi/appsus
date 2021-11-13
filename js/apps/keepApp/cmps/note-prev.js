@@ -20,9 +20,9 @@ export default {
                 <button title="Pin" @click="pinNote">
                         <i class="fas fa-thumbtack" :style="pinNoteColor"></i>
                     </button>
-                    <button title="Share" @click="shareNote">
+                    <!-- <button title="Share" @click="shareNote">
                         <i class="fas fa-share-alt"></i>
-                    </button>
+                    </button> -->
                     <i class="fas fa-palette color-btn" title="Color" @mouseover="showColors" @mouseleave="hideColors">
                     <div class="color-btns" v-if="isShowingColors">
                             <span class="color-opt" style="background-color: rgb(255, 255, 136);" @click="setColor('rgb(255, 255, 136)')"></span>
