@@ -10,6 +10,7 @@ export default {
     <div class="email"
     @mouseover="onHover(true)"
     @mouseleave="onHover(false)"
+    
      >
     <article class="mail-preview" 
        v-bind:class="[mail.isRead ? 'read' : '']"
@@ -26,7 +27,7 @@ export default {
         </span>
       </section>
 
-     <div :class="{hovered: isHovered}" v-if=!isHover class="mail-data">{{mail.sentAt}}</div>
+     <div  v-if=!isHover class="mail-data">{{mail.sentAt}}</div>
 
      <div v-else class="preview-btns-container flex" >
       <!-- <img src="assets/svg/reply.svg" title="Reply"> -->
