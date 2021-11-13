@@ -1,8 +1,8 @@
 .app-nav {
     align-self: start;
-    /* position: absolute; */
+    position: absolute;
     z-index: 100;
-    /* top: 20px; */
+    top: 20px;
     right: 30px;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .app-nav-item>a:hover {
-    color: #0092ff !important;
+    color: #0092ff;
 }
 
 .app-nav-item>a>h3 {
@@ -43,14 +43,13 @@
     position: absolute;
     font-family: google-sans-bold;
     top: 50px;
-    right: -30px;
+    right: -25px;
     background-color: white;
-    width: 300px;
-    height: 300px;
-    /*  */
+    width: 200px;
+    height: 200px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     text-align: center;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
     border-radius: 5px;

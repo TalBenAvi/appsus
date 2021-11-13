@@ -10,6 +10,7 @@
 }
 .note-preview i {
     font-size: 1.1rem;
+    display: flex;
 }
 .note-preview img {
     width: 100%;
@@ -18,8 +19,9 @@
 }
 
 .note-preview iframe {
-    height:max-content;
-    width: 100%;
+    height:fit-content;
+    position: relative;
+    width: 50%;
 }
 
 .color-btn {

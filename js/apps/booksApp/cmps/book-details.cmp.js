@@ -18,7 +18,6 @@ export default {
             <p>Categories : {{bookCategories}}</p>
             <p>Language : {{book.language}}</p>
             <span class="sale">{{saleForDisplay}}</span>
-            <!-- <router-link :to="'/book/'+previousBookId">🠸 previous book</router-link> -->
             <router-link :to="'/book/'+nextBookId">Next book 🠺</router-link>
         <fieldset class="reviews">
             <legend>Book Reviews:</legend>
