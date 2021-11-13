@@ -2,15 +2,15 @@ import {
     utilService
 } from "../../../services/util-service.js";
 import mailSummery from "./mail-summery.cmp.js";
-import {
-    keepService
-} from "../../keepApp/keep-service.js";
+import { keepService } from "../../keepApp/keep-service.js";
+import { eventBus } from "../../../services/event-bus-service.js"
 export default {
     props: ['mail'],
     template: `
     <div class="email"
     @mouseover="onHover(true)"
     @mouseleave="onHover(false)"
+    
      >
     <article class="mail-preview" 
        v-bind:class="[mail.isRead ? 'read' : '']"
@@ -27,14 +27,14 @@ export default {
         </span>
       </section>
 
-     <div :class="{hovered: isHovered}" v-if=!isHover class="mail-data">{{mail.sentAt}}</div>
+     <div  v-if=!isHover class="mail-data">{{mail.sentAt}}</div>
 
      <div v-else class="preview-btns-container flex" >
-      <img src="assets/svg/reply.svg" title="Reply">
-      <img src="assets/img/trash.png" title="Remove">
-      <img src="assets/img/unread.png" title="Mark as unread">
+      <!-- <img src="assets/svg/reply.svg" title="Reply"> -->
+      <!-- <img @click.stop="deleteMail" src="assets/img/trash.png" title="Remove"> -->
+      <!-- <img src="assets/img/unread.png" title="Mark as unread"> -->
       <img @click="sendNote(mail)" src="assets/svg/note.svg" title="Export as note">
-      <img src="assets/svg/fullscreen.svg" title="Full screen">
+      <!-- <img src="assets/svg/fullscreen.svg" title="Full screen"> -->
       </div>
 
     </article>
@@ -99,6 +99,17 @@ export default {
             this.$router.push(url);
             
 
+        },
+        deleteMail(mail){
+            console.log(this.mail.status);
+        //    mail.status =  mail.status.forEach(stat => {
+        //         if(stat === 'inbox || sent || archive || draft')
+        //         console.log('stat',stat);
+        //     })
+            // mail.status
+            console.log(this.mail);
+            this.$emit('removeMail', this.mail)
+            
         },
     },
     computed: {

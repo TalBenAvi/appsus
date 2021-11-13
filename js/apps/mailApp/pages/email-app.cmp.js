@@ -59,14 +59,7 @@ export default {
             status:'inbox',
         }
     },
-    created() {
-        eventBus.$on('reloadMails', this.loadMails)
-        // eventBus.$on('saveAsDraft', this.saveDraft)
-        // eventBus.$on('removeMail', this.removeMail)
-        // eventBus.$on('searchInMail', this.onSearch)
-        this.loadMails()
-        
-    },
+
     methods: {
         loadMails() {
             mailService.query()
@@ -112,7 +105,18 @@ export default {
                 })
                 .then(this.loadMails())
         },
+        removeMail() {
+           this.loadMails();
+        },
 
+    },
+    created() {
+        eventBus.$on('reloadMails', this.loadMails)
+        // eventBus.$on('saveAsDraft', this.saveDraft)
+        eventBus.$on('removeMail', this.removeMail)
+        // eventBus.$on('searchInMail', this.onSearch)
+        this.loadMails()
+        
     },
     computed:{
         // composeClick(){
