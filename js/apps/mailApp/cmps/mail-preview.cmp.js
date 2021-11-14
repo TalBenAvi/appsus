@@ -2,16 +2,21 @@ import {
     utilService
 } from "../../../services/util-service.js";
 import mailSummery from "./mail-summery.cmp.js";
-import { keepService } from "../../keepApp/keep-service.js";
-import { eventBus } from "../../../services/event-bus-service.js"
-import { storageService } from "../../../services/async-storage-service.js";
+import {
+    keepService
+} from "../../keepApp/keep-service.js";
+import {
+    eventBus
+} from "../../../services/event-bus-service.js"
+import {
+    storageService
+} from "../../../services/async-storage-service.js";
 export default {
     props: ['mail'],
     template: `
     <div class="email"
-    @mouseover="onHover(true)"
-    @mouseleave="onHover(false)"
-    
+  
+  
      >
     <article class="mail-preview" 
        v-bind:class="[mail.isRead ? 'read' : '']"
@@ -31,7 +36,7 @@ export default {
      <!-- <div  v-if=!isHover class="mail-data">{{mail.sentAt}}</div> -->
      <div  v-if=!isHover class="mail-data">{{this.sendAt}}</div>
 
-     <div v-else class="preview-btns-container flex" >
+     <div  v-else class="preview-btns-container flex" >
       <!-- <img src="assets/svg/reply.svg" title="Reply"> -->
       <!-- <img @click.stop="deleteMail" src="assets/img/trash.png" title="Remove"> -->
       <!-- <img src="assets/img/unread.png" title="Mark as unread"> -->
@@ -62,7 +67,8 @@ export default {
         // console.log('this.mail.sentAt',this.mail.sentAt);
         const time = utilService.formatDate(this.mail.sentAt);
         // console.log('time',typeof time);
-        this.sendAt=time
+        this.sendAt = time
+        this.mail.sendAt = time
         // console.log(('this.mail',this.mail));
         this.isExportNoteClicked = false;
     },
@@ -99,24 +105,24 @@ export default {
                 videoUrl: "",
             }
             const mail = keepService.createNote('note-text', false, info)
-            console.log('mail',mail);
-            keepService.post(mail) ;
+            console.log('mail', mail);
+            keepService.post(mail);
             this.isExportNoteClicked = true;
             const url = `/notes`;
             this.$router.push(url);
-            
+
 
         },
-        deleteMail(mail){
+        deleteMail(mail) {
             console.log(this.mail.status);
-        //    mail.status =  mail.status.forEach(stat => {
-        //         if(stat === 'inbox || sent || archive || draft')
-        //         console.log('stat',stat);
-        //     })
+            //    mail.status =  mail.status.forEach(stat => {
+            //         if(stat === 'inbox || sent || archive || draft')
+            //         console.log('stat',stat);
+            //     })
             // mail.status
             console.log(this.mail);
             this.$emit('removeMail', this.mail)
-            
+
         },
     },
     computed: {
@@ -182,5 +188,6 @@ export default {
      <img src="assets/svg/fullscreen.svg" title="Full screen">
      </div>
     </article> */
+} {
+    /* <router-link v-if="isExportNoteClicked" to="/notes"></router-link> */
 }
-{/* <router-link v-if="isExportNoteClicked" to="/notes"></router-link> */}
