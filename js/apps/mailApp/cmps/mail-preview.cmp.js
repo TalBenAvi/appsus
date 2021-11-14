@@ -4,6 +4,7 @@ import {
 import mailSummery from "./mail-summery.cmp.js";
 import { keepService } from "../../keepApp/keep-service.js";
 import { eventBus } from "../../../services/event-bus-service.js"
+import { storageService } from "../../../services/async-storage-service.js";
 export default {
     props: ['mail'],
     template: `
@@ -27,7 +28,8 @@ export default {
         </span>
       </section>
 
-     <div  v-if=!isHover class="mail-data">{{mail.sentAt}}</div>
+     <!-- <div  v-if=!isHover class="mail-data">{{mail.sentAt}}</div> -->
+     <div  v-if=!isHover class="mail-data">{{this.sendAt}}</div>
 
      <div v-else class="preview-btns-container flex" >
       <!-- <img src="assets/svg/reply.svg" title="Reply"> -->
@@ -51,12 +53,17 @@ export default {
             starId: '',
             isHover: false,
             isExportNoteClicked: false,
+            sendAt: '',
         }
     },
     created() {
         // console.log(' this.mail.sentAt', this.mail.sentAt);
         // this.mail.sentAt = utilService.formatDate(this.mail.sentAt)
         // console.log('this.mail.sentAt',this.mail.sentAt);
+        const time = utilService.formatDate(this.mail.sentAt);
+        console.log('time',typeof time);
+        this.sendAt=time
+        console.log(('this.mail',this.mail));
         this.isExportNoteClicked = false;
     },
     methods: {
