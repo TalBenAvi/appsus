@@ -19,7 +19,7 @@ export default {
                     imgUrl: '',
                     videoUrl: ''
                 },
-                categories: ['notes'],
+                categories: ['notes','all'],
                 bgc: 'rgb(170, 255, 238);'
             }
         }

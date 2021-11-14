@@ -5,7 +5,7 @@ import bookReview from '../cmps/book-review.cmp.js'
 export default {
     template: `
         <section v-if="book" class="book-details app-main">
-            <router-link to="/book" class="btn-location">X</router-link>
+            <router-link to="/books" class="btn-location">X</router-link>
             <h3>Book Details:</h3>
             <p>Title : {{book.title}}</p>
             <p>Subtitle : {{book.subtitle}}</p>

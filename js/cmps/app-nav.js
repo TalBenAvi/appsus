@@ -27,8 +27,14 @@ template: `
             },
             {
                 icon: 'fas fa-info fa-2x',
-                title: 'About',
+                title: 'Info',
                 routerUrl: '/about',
+                color: 'black'
+            },
+            {
+                icon: 'fas fa-book fa-2x',
+                title: 'Books',
+                routerUrl: '/books',
                 color: 'black'
             },
             ],

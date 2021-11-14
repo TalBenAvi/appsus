@@ -6,7 +6,7 @@ export default {
     template: `
     <section>
         <li>
-            <img :src="note.info.imgUrl" alt="no img">
+            <img :src="note.info.imgUrl">
         </li>
     </section>
     `

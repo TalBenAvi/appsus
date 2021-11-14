@@ -1,5 +1,6 @@
 @import url(./apps/missEmail/main.css);
 @import url(./apps/missKeep/keep-main.css);
+@import url(./apps/missBooks/book-main.css);
 @import url(../lib/animate.css);
 
 
@@ -61,57 +62,15 @@ button{
     font-size: xx-large;
     font-family: 'Courier New', Courier, monospace;
 }
+.home-page{
+    text-align: center;
+    height: 84vh;
+    width: 100%;
+}
+.home-page img{
+    width: 90%;
+}
 .about-page{
     text-align: center;
     height: 84vh;
 }
-/* @font-face {
-    font-family: 'Roboto';
-    
-    src: url('./fonts/Roboto-Regular.ttf');
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: 'Roboto';
-   
-    src: url('./fonts/Roboto-Italic.ttf');
-    font-style: italic;
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    
-    src: url('./fonts/Roboto-Bold.ttf');
-    font-style: normal;
-    font-weight: bold;
-} */
-/* .app-nav {
-    align-self: start;
-    position: absolute;
-    z-index: 100;
-    top: 20px;
-    right: 30px;
-}
-
-.app-nav .menu-icon {
-    font-size: 30px;
-    margin-top: 20px;
-    cursor: pointer;
-    z-index: 200;
-    position: absolute;
-    top: -15px;
-    right: 10px;
-}
-
-.app-nav .menu-icon {
-    font-size: 30px;
-    margin-top: 20px;
-    cursor: pointer;
-    z-index: 200;
-    position: absolute;
-    top: -15px;
-    right: 10px;
-} */

@@ -14,7 +14,6 @@ export const keepService = {
     get,
     save,
     togglePinNode,
-    createNoteKoren
 }
 function query() {
     return storageService.query(NOTES_KEY)
@@ -57,7 +56,7 @@ function createNotes() {
             "txt": "",
             "todos": [],
             "imgUrl": "",
-            "videoUrl": "https://www.youtube.com/watch?v=qz0aGYrrlhU&list=RDCMUCWv7vMbMWH4-V0ZXdmDpPBA&index=1",
+            "videoUrl": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
         },
         "categories": [
             "all",
@@ -112,7 +111,7 @@ function createNotes() {
                 "todos",
                 "fun:color"
             ],
-            "bgc":"rgb(170, 255, 238)"
+            "bgc":"rgbrgb(255, 255, 136)"
         },
         {
             "id": `${storageService.makeId()}`,
@@ -155,14 +154,6 @@ function createNotes() {
 }
 function createNote(type, isPinned, info) {
     return {
-        type,
-        isPinned,
-        info
-    }
-}
-function createNoteKoren(type, isPinned, info) {
-    return {
-        id:'',
         type,
         isPinned,
         info

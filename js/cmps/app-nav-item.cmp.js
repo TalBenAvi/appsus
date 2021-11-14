@@ -12,7 +12,7 @@ export default {
     `,
     computed: {
         color() {
-            if (!this.item.routerUrl) return 'color: ' + this.item.color + '!important'
+            if (!this.item.routerUrl) return 'color: ' + this.item.color
             return 'color: ' + this.item.color
         },
         route() {
