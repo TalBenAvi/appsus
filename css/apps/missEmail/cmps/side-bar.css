@@ -21,7 +21,13 @@
     bottom: 40px;
     right: 40px;
     z-index: 10;
-    box-shadow: -1px 1px 8px rgb(81 86 90 / 30%), 0 1px 11px 6px rgb(60 64 67 / 15%);
+    box-shadow: -1px 1px 80px rgb(81 86 90 / 30%), 0 1px 11px 6px rgb(60 64 67 / 15%);
+    
+}
+
+.mail-compose-btn:hover {
+    transform: rotate(540deg);
+    transition: transform .85s, opacity .85s;
 }
 
 .email-menu>* {
@@ -61,8 +67,17 @@
         z-index: initial;
     }
     .email-side-bar {
-        min-width: 255px;
-        padding-left: 20px;
+        /* min-width: 255px; */
+        /* padding-left: 20px; */
+        display: flex;
+        /* min-width: 255
+    px
+    ; */
+        padding-left: 3%;
+        padding-right: 5%;
+        flex-direction: column;
+        align-content: flex-end;
+        align-items: center;
     }
     .email-menu {
         flex-direction: column;
@@ -81,5 +96,4 @@
     .email-app {
         flex-direction: column;
     }
-   
 }
