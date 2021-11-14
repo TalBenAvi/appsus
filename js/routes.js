@@ -7,23 +7,23 @@ import notesApp from './apps/keepApp/pages/keep-app.cmp.js'
 import emailApp from './apps/mailApp/pages/email-app.cmp.js'
 const aboutTeam = {
     template: `<section class="about-team">
-        <h3>Our Team is The Best There is</h3>
+        <h3>Tal Ben-Avi</h3>
         <p>
-        our team here to help you with any problem or question you have you can contact us in our costumer support or on the phone
+        Tal is the creator of missNotes and the co-creator of this whole website!
         </p>
     </section>   `
 }
 const aboutService = {
     template: `<section class="about-service">
-        <h3>What our Services includes</h3>
+        <h3>Koren Levi</h3>
         <p>
-           you can contact us and ask us to find you any book there is and we will find it no matter how long it will take!
+           Koren is the creator of the misterEmail and co-creator of this whole website!
         </p>
     </section>   `
 }
 const routes = [
     {
-        path: '/',
+        path: '/home',
         component: homePage
     },
     {

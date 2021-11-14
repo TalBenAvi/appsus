@@ -1,6 +1,3 @@
-import {
-    eventBus
-} from '../services/event-bus-service.js';
 
 export default {
     template: `
@@ -17,11 +14,5 @@ export default {
     methods: {
 
     },
-    // created() {
-    //     console.log('Created');
-    // },
-    // mounted(){
-    //     console.log('Mounted');
-    //     console.log(this.$refs.header);
-    // }
+
 };

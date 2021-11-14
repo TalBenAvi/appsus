@@ -111,7 +111,7 @@ function createNotes() {
                 "todos",
                 "fun:color"
             ],
-            "bgc":"rgb(170, 255, 238)"
+            "bgc":"rgbrgb(255, 255, 136)"
         },
         {
             "id": `${storageService.makeId()}`,

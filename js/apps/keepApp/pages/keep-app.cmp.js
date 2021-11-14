@@ -40,22 +40,22 @@ export default {
                 text: 'videos',
                 icon: 'fab fa-youtube'
             },
-            {
-                text: 'fun',
-                icon: 'fas fa-circle fun'
-            },
-            {
-                text: 'work',
-                icon: 'fas fa-circle work'
-            },
-            {
-                text: 'family',
-                icon: 'fas fa-circle family'
-            },
-            {
-                text: 'health',
-                icon: 'fas fa-circle health'
-            },
+            // {
+            //     text: 'fun',
+            //     icon: 'fas fa-circle fun'
+            // },
+            // {
+            //     text: 'work',
+            //     icon: 'fas fa-circle work'
+            // },
+            // {
+            //     text: 'family',
+            //     icon: 'fas fa-circle family'
+            // },
+            // {
+            //     text: 'health',
+            //     icon: 'fas fa-circle health'
+            // },
         ],
         }
     },
