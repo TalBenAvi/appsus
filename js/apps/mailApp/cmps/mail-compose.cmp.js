@@ -26,7 +26,7 @@ export default {
 
     <div class="compose-actions flex">
       <button @click="sendMail" class="compose-btn-send" type="submit">Send</button>
-      <button type="button" class="compose-btn-delete">
+      <button @click="closeCompose" type="button" class="compose-btn-delete">
           <img src="assets/img/trash.png">
         </button>
     </div>

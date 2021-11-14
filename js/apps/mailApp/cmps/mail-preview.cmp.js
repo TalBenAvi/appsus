@@ -61,9 +61,9 @@ export default {
         // this.mail.sentAt = utilService.formatDate(this.mail.sentAt)
         // console.log('this.mail.sentAt',this.mail.sentAt);
         const time = utilService.formatDate(this.mail.sentAt);
-        console.log('time',typeof time);
+        // console.log('time',typeof time);
         this.sendAt=time
-        console.log(('this.mail',this.mail));
+        // console.log(('this.mail',this.mail));
         this.isExportNoteClicked = false;
     },
     methods: {
@@ -76,7 +76,7 @@ export default {
             // this.mail.isStarred!=this.mail.isStarred;
             this.isStarClicked = !this.isStarClicked;
             this.starId = this.mail.id;
-            console.log('this', this.mail);
+            // console.log('this', this.mail);
             // setTimeout(() => {
             //     console.log('koren');
             //     this.$emit('starMail', this.mail)
