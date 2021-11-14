@@ -39,21 +39,21 @@ export default {
                     icon: 'fas fa-star',
                     isActive:false
                 },
-                {
-                    text: 'archived',
-                    icon: 'fas fa-archive',
-                    isActive:false
-                },
-                {
-                    text: 'draft',
-                    icon: 'fas fa-pencil-ruler',
-                    isActive:false
-                },
-                {
-                    text: 'trash',
-                    icon: 'fas fa-trash-alt',
-                    isActive:false
-                }
+                // {
+                //     text: 'archived',
+                //     icon: 'fas fa-archive',
+                //     isActive:false
+                // },
+                // {
+                //     text: 'draft',
+                //     icon: 'fas fa-pencil-ruler',
+                //     isActive:false
+                // },
+                // {
+                //     text: 'trash',
+                //     icon: 'fas fa-trash-alt',
+                //     isActive:false
+                // }
             ],
             isComposeClick:false,
             status:'inbox',

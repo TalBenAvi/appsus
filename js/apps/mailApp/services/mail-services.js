@@ -359,7 +359,7 @@ function createFirstMails() {
         body: 'Hello!\nHow are you? I had a great time last night, call me if you wanna hang out again..',
         isRead: true,
         isStarred: false,
-        sentAt: 1627074009000,
+        sentAt: 1627074029000,
         from: 'momo@gmail.com',
         to: 'muki@appsus.com',
       },
