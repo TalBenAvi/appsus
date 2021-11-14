@@ -2,7 +2,7 @@
     font-size: 13px;
     padding: 6px;
     border: 1px solid black;
-    background-color: chocolate;
+    background-color: #e6d896;
     height: 200px;
     width: 200px;
     display: flex;
@@ -13,15 +13,4 @@
 
 .book-preview-container img {
     width: 45%;
-}
-
-/* footer */
-
-.app-footer {
-    padding: 10px;
-    height: 8vh;
-    background-color: #A63F03;
-    text-align: center;
-    font-size: xx-large;
-    font-family: 'Courier New', Courier, monospace;
 }

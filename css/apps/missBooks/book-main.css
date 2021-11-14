@@ -1,10 +1,9 @@
-@import url('');
-@import url('');
-@import url('');
-@import url('');
-@import url('');
-
-
+@import url(./cmps/book-details.css);
+@import url(./cmps/user-msg.css);
+@import url(./cmps/book-preview.css);
+@import url(./cmps/book-filter.css);
+@import url(./cmps/book-edit.css);
+@import url(./cmps/book-list.css);
 * {
     box-sizing: border-box;
 }

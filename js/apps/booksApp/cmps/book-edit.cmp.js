@@ -4,6 +4,7 @@ export default {
     template: `
         <section class="book-edit app-main">
             <h3>Add a new book to the wesite</h3>
+            <router-link to="/books" class="btn2-location">X</router-link>
                 <input v-model.lazy="txt" type="text" placeholder="search" @keyup.enter="search">
                 <div v-if="books" class="search-results">
                 <ul v-for="book in books">

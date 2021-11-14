@@ -1,12 +1,12 @@
 .book-filter {
     padding: 20px;
-    background-color: #F2CC0C;
+    background-color: #e6d896;
     text-align: center;
 }
 
 input[type=range] {
     height: 10px;
-    background-color: #F2CC0C;
+    background-color: #e6d896;
     -webkit-appearance: none;
     width: 25%;
 }
