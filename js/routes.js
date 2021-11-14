@@ -23,7 +23,7 @@ const aboutService = {
 }
 const routes = [
     {
-        path: '/home',
+        path: '/',
         component: homePage
     },
     {
